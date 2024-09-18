@@ -24,9 +24,4 @@ jobs:
       run: |
         devenv shell bun install
         devenv shell bun run build
-        devenv shell bunx \
-          wrangler pages deploy dist/ \
-            --project-name="$CLOUDFLARE_PROJECT" \
-            --commit-hash=$(git rev-parse --short "$GITHUB_SHA") \
-            --commit-message="$(git log --format=%B -n 1 "$GITHUB_SHA")" \
-            --branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+        devenv shell deploy

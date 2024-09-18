@@ -1,4 +1,5 @@
 {
+  dotenv.enable = true;
   languages.javascript.enable = true;
   languages.javascript.bun.enable = true;
 
@@ -26,4 +27,11 @@
   scripts.astro.exec = "bunx astro $@";
   scripts.eslint.exec = "bunx eslint --flag unstable_ts_config $@";
   scripts.prettier.exec = "bunx prettier --ignore-unknown $@";
+  scripts.deploy.exec = ''
+    bunx wrangler pages deploy dist/ \
+      --project-name="$CLOUDFLARE_PROJECT" \
+      --commit-hash=$(git rev-parse --short "$GITHUB_SHA") \
+      --commit-message="$(git log --format=%B -n 1 "$GITHUB_SHA")" \
+      --branch="$GITHUB_REF_NAME"
+  '';
 }
