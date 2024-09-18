@@ -1,0 +1,20 @@
+{
+  "name": "@british-academy/website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/ts-plugin": "^1.10.2",
+    "@types/bun": "latest",
+    "astro": "^4.15.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.6.2"
+  }
+}
