@@ -1,0 +1,22 @@
+---
+import { ViewTransitions } from "astro:transitions"
+import BaseHead, { type Props as HeadProps } from "~/components/BaseHead.astro"
+import { direction } from "~/utils/i18n"
+
+import Navbar from "~/components/Navbar.astro"
+
+export type Props = HeadProps & { showHeader?: boolean }
+const { showHeader = true, ...head } = Astro.props
+---
+
+<!doctype html>
+<html dir={direction(Astro.currentLocale)} lang={Astro.currentLocale} class="antialiased break-words">
+  <head>
+    <BaseHead {...head} />
+    <ViewTransitions />
+  </head>
+  <body class="bg-slate-100 dark:bg-slate-900 scroll-smooth">
+    {showHeader && <Navbar />}
+    <slot />
+  </body>
+</html>

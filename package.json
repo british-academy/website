@@ -10,11 +10,16 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.1",
     "@astrojs/ts-plugin": "^1.10.2",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/bun": "latest",
     "astro": "^4.15.7",
+    "flowbite": "^2.5.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
+    "tailwind-merge": "^2.5.2",
     "typescript": "^5.6.2"
   }
 }
