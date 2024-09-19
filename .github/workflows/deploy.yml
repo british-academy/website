@@ -21,7 +21,4 @@ jobs:
         CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
         CLOUDFLARE_API_TOKEN: ${{secrets.CLOUDFLARE_API_TOKEN}}
         CLOUDFLARE_PROJECT: ${{vars.CLOUDFLARE_PROJECT}}
-      run: |
-        devenv shell bun install
-        devenv shell bun run build
-        devenv shell deploy
+      run: devenv shell deploy

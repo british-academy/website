@@ -28,7 +28,7 @@
   scripts.eslint.exec = "bunx eslint --flag unstable_ts_config $@";
   scripts.prettier.exec = "bunx prettier --ignore-unknown $@";
   scripts.deploy.exec = ''
-    bun run install && bun run build
+    bun install && bun run build
     bunx wrangler pages deploy dist/ \
       --project-name="$CLOUDFLARE_PROJECT" \
       --commit-hash=$(git rev-parse --short "$GITHUB_SHA") \
