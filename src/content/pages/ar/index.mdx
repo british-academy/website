@@ -1,0 +1,82 @@
+---
+createdDate: "2024-09-11T17:13:30Z"
+updatedDate: "2024-09-11T17:13:30Z"
+draft: false
+name: "الرئيسية"
+title: "فتح الفرص العالمية من خلال إتقان اللغة"
+description: "في الأكاديمية البريطانية للغات، يدفعنا شغفنا لتمكين الأفراد والمهنيين من تحقيق أهدافهم اللغوية. ونشتهر بمرونتنا التي لا مثيل لها، وبرامجنا سريعة الاستجابة، وأساليبنا التعليمية الاستثنائية، ونوفر تجربة تعليمية تحويلية للمتعلمين من جميع الأعمار. وسواء كنت تهدف إلى تحسين مهاراتك اللغوية أو التقدم لامتحانات معترف بها دولياً، فنحن نوفر لك كل ما تحتاج إليه."
+image:
+  src: "~/assets/images/students.jpg"
+  alt: "students in a class room, one raises his hand"
+---
+
+import students from "~/assets/images/students.jpg"
+
+import Button from "~/components/Button.astro"
+import Icon from "~/components/Icon.astro"
+import Section from "~/components/Section.astro"
+import SectionItem from "~/components/SectionItem.astro"
+
+<Section title={frontmatter.title} background={students} mode="dark" align="center">
+  <p>{frontmatter.description}</p>
+
+{" "}
+
+<Button
+  slot="actions"
+  type="link"
+  href="#"
+  icon-class="rtl:rotate-180"
+  icon-right="arrow-right"
+  color="primary"
+  size="base"
+  rounded="lg"
+>
+  اعرف المزيد
+</Button>
+<Button
+  slot="actions"
+  type="link"
+  href="#"
+  icon-class="rtl:rotate-180"
+  icon-left="camera"
+  color="secondary"
+  size="base"
+  rounded="lg"
+>
+  شاهد الفيديو
+</Button>
+
+  <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 hover:text-slate-400">BBC News Logo</Icon>
+</Section>
+
+<Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية">
+  نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.
+
+  <SectionItem slot="grid" icon-name="toefl">
+    ### Test of English as a Foreign Language
+
+    _بوابتك للدراسة في الخارج_
+
+    اختبار TOEFL مثالي للطلاب الراغبين في الدراسة في الجامعات في البلدان الناطقة باللغة الإنجليزية. ويختبر هذا الاختبار قدرتك على الفهم والتواصل الفعال في الأوساط الأكاديمية. ومع حصولك على درجة عالية في اختبار TOEFL، فإن أبواب التعليم العالمي مفتوحة على مصراعيها.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="toeic">
+    ### Test of English for International Communication
+
+    _إتقان اللغة الإنجليزية لمكان العمل_
+
+    صُمم اختبار TOEIC للمحترفين، وهو يقيس قدرتك على التواصل في بيئات العمل. وهو مثالي للباحثين عن النمو الوظيفي أو فرص العمل أو الأدوار الدولية التي تتطلب مهارات تواصل قوية باللغة الإنجليزية.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="ielts">
+    ### International English Language Testing System
+
+    _اختبار لجميع المسارات_
+
+    سواءً كان لأغراض أكاديمية أو لأغراض الهجرة، يعد امتحان ”IELTS“ أحد أكثر الامتحانات المقبولة على نطاق واسع في جميع أنحاء العالم. وتركيزه الواسع يجعله مثالياً لمن يتابعون تعليمهم العالي، أو يعملون في الخارج، أو حتى يهاجرون إلى البلدان الناطقة باللغة الإنجليزية.
+
+  </SectionItem>
+</Section>

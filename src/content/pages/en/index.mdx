@@ -1,0 +1,97 @@
+---
+createdDate: "2024-09-11T17:13:30Z"
+updatedDate: "2024-09-11T17:13:30Z"
+draft: false
+name: "Home"
+title: "Unlocking Global Opportunities Through Language Mastery"
+description: "At British Language Academy, we are driven by a passion for empowering individuals and professionals to achieve their language goals. Renowned for our unmatched flexibility, responsive programs, and exceptional teaching methods, we provide a transformative learning experience for learners of all ages. Whether you're aiming to improve your language skills or take internationally recognized exams, we've got you covered."
+image:
+  src: "~/assets/images/students.jpg"
+  alt: "students in a class room, one raises his hand"
+---
+
+import students from "~/assets/images/students.jpg"
+import Button from "~/components/Button.astro"
+import Icon from "~/components/Icon.astro"
+import Section from "~/components/Section.astro"
+import SectionItem from "~/components/SectionItem.astro"
+
+<Section
+  mode="dark"
+  align="center"
+  title={frontmatter.title}
+  background={students} 
+  >
+  <p>{frontmatter.description}</p>
+
+{" "}
+
+<Button slot="actions" type="link" href="#" icon-right="arrow-right" color="primary" size="base" rounded="lg">
+  Learn more
+</Button>
+<Button slot="actions" type="link" href="#" icon-left="camera" color="secondary" size="base" rounded="lg">
+  Watch video
+</Button>
+
+  <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 hover:text-slate-400">BBC News Logo</Icon>
+</Section>
+
+<Section title="Achieve Your Language Goals with Global Certifications">
+  At British Language Academy, we offer an extensive range of internationally recognized language exams, each designed to validate your English proficiency for academic, professional, or personal success.
+
+  <SectionItem slot="grid" icon-name="toefl">
+    ### Test of English as a Foreign Language
+
+    _Your Gateway to Studying Abroad_
+
+    TOEFL is ideal for students aiming to study at universities in English-speaking countries. This exam tests your ability to understand and communicate effectively in academic settings. With a high TOEFL score, doors to global education are wide open.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="toeic">
+    ### Test of English for International Communication
+
+    _Master English for the Workplace_
+
+    Designed for professionals, TOEIC measures your ability to communicate in business environments. It’s perfect for those seeking career growth, job opportunities, or international roles that require strong English communication skills.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="ielts">
+    ### International English Language Testing System
+
+    _A Test for All Paths_
+
+    Whether for academic or immigration purposes, IELTS is one of the most widely accepted exams worldwide. Its broad focus makes it ideal for those pursuing higher education, working abroad, or even migrating to English-speaking countries.
+
+  </SectionItem>
+</Section>
+
+## Accredited by the University of Cambridge
+
+> _Setting the Standard for Excellence in Language Education_
+
+British Language Academy takes pride in being accredited by the prestigious University of Cambridge. Our diplomas are recognized internationally, ensuring that your qualifications stand out wherever you go. Cambridge's endorsement not only reflects the high standards of our programs but also guarantees that our learners receive world-class education, aligned with global expectations.
+
+## Why British Language Academy is Your Best Choice
+
+> _Where Language Learning Meets Success_
+
+- Exceptional Teaching Quality
+  Our experienced, highly qualified instructors deliver personalized lessons that cater to your unique learning needs, ensuring that you receive the best possible guidance.
+- Effective, Tailored Programs
+  We offer a wide variety of courses and programs, each carefully designed to meet the needs of learners of all ages—from children to adults and professionals.
+- Accredited Qualifications
+  Gain globally recognized diplomas that will help you stand out, whether you’re aiming for academic, professional, or personal milestones.
+- Professional Advice & Career Guidance
+  Our experienced advisors provide expert guidance on how to use your language skills for career advancement, further studies, or international opportunities.
+- Personalized Support & Active Follow-Up
+  We’re committed to your success. That’s why we offer ongoing support, progress tracking, and personalized feedback, ensuring you’re always on the right path.
+- Friendly, Inclusive Atmosphere
+  We believe in fostering a positive and supportive learning environment. At British Language Academy, you’ll find a warm, welcoming atmosphere that motivates you to succeed.
+
+## Flexible Courses for Everyone
+
+> _Designed for Children, Teens, Adults, and Professionals_
+
+No matter your age or goals, British Language Academy offers a wide range of programs tailored to meet your specific needs. From foundational language skills for children to advanced business communication for professionals, we provide the right learning path for everyone.

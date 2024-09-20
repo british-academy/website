@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types"
+import Icon from "~/components/Icon.astro"
+
+type Props = HTMLAttributes<"div"> & {
+  "icon-name"?: string
+}
+const { class: classList, "icon-name": iconName, ...attrs } = Astro.props
+---
+
+<div class="text-gray-500 dark:text-gray-400 mb-8" {...attrs}>
+  {
+    iconName && (
+      <div class="flex items-center mb-4 w-full h-14 text-secondary-700">
+        <Icon name={iconName} class="w-32 text-gray-700/80 dark:text-white/80" />
+      </div>
+    )
+  }
+  <slot />
+</div>
+
+<style>
+  div :global(h3) {
+    @apply text-base md:text-lg font-bold mb-4;
+  }
+
+  div :global(p) {
+    @apply mb-2;
+  }
+</style>

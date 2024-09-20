@@ -1,0 +1,123 @@
+---
+import { type HTMLAttributes } from "astro/types"
+import { t, defaultLocale } from "~/utils/i18n"
+import { Image } from "astro:assets"
+import { twMerge } from "tailwind-merge"
+
+type Props = HTMLAttributes<"section"> & {
+  title: string
+  background?: string | ImageMetadata
+  align?: "center"
+  mode?: "dark" | "light" | "auto"
+}
+const { align, mode = "auto", class: classList, title, background, ...attrs } = Astro.props
+const { default: defaultSlot, actions: actionsSlot, featured: featuredSlot, grid: gridSlot } = Astro.slots
+const l = Astro.currentLocale || defaultLocale
+
+// if we have image metadata as background we add that
+const sectionCls = twMerge([
+  mode === "auto" && "bg-white dark:bg-slate-900",
+  mode === "dark" && "bg-slate-900",
+  mode === "light" && "bg-white",
+
+  background && typeof background !== "string" && "relative bg-gray-700 overflow-hidden",
+
+  classList,
+])
+
+const divCls = twMerge([
+  "py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12",
+
+  background && typeof background !== "string" && "relative z-10",
+
+  mode === "auto" && "text-slate-500 dark:text-slate-400",
+  mode === "dark" && "text-slate-400",
+  mode === "light" && "text-slate-500",
+])
+
+const introDivCls = twMerge([
+  "max-w-screen-lg mb-8 lg:mb-16 sm:text-xl",
+
+  mode === "auto" && "text-slate-500 dark:text-slate-400",
+  mode === "dark" && "text-slate-400",
+  mode === "light" && "text-slate-500",
+
+  align === "center" && "text-center mx-auto",
+])
+
+const titleCls = twMerge([
+  "mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl",
+
+  mode === "auto" && "text-slate-900 dark:text-white",
+  mode === "dark" && "text-white",
+  mode === "light" && "text-slate-900",
+])
+
+const featuredHeaderCls = twMerge([
+  "font-semibold uppercase",
+
+  mode === "auto" && "text-slate-200 dark:text-slate-800",
+  mode === "dark" && "text-slate-200",
+  mode === "light" && "text-slate-800",
+])
+
+const featuredBodyCls = twMerge([
+  "flex flex-wrap justify-center items-center mt-8 sm:justify-between",
+
+  mode === "auto" && "text-slate-400 dark:text-slate-600",
+  mode === "dark" && "text-slate-600",
+  mode === "light" && "text-slate-400",
+])
+---
+
+<section class={sectionCls} {...attrs}>
+  <div class={divCls}>
+    <div class={introDivCls}>
+      {title && <h1 class={titleCls}>{title}</h1>}
+      {defaultSlot && <slot />}
+    </div>
+
+    {
+      actionsSlot && (
+        <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+          <slot name="actions" />
+        </div>
+      )
+    }
+
+    {
+      featuredSlot && (
+        <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+          <span class={featuredHeaderCls}>{t(l, "hero.featured_on")}</span>
+          <div class={featuredBodyCls}>
+            <slot name="featured" />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      gridSlot && (
+        <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+          <slot name="grid" />
+        </div>
+      )
+    }
+  </div>
+  {
+    background && typeof background !== "string" && (
+      <Image
+        class="absolute object-cover top-0 left-0 w-full h-full mix-blend-multiply"
+        src={background}
+        alt=""
+        widths={[240, 360, 480, 720, 1080]}
+      />
+    )
+  }
+</section>
+
+<style>
+  section :global(.blurb > p) {
+    @apply mb-4 last:mb-8 text-lg lg:text-xl font-normal;
+  }
+</style>

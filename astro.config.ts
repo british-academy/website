@@ -2,6 +2,7 @@ import { resolve } from "node:path"
 import { defineConfig } from "astro/config"
 import { defaultLocale, locales } from "./src/content/translations"
 
+import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
 
@@ -18,7 +19,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap(), tailwind()],
+  integrations: [mdx(), sitemap(), tailwind()],
 
   vite: {
     resolve: {

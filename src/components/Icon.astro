@@ -7,12 +7,26 @@ interface Props extends HTMLAttributes<"svg"> {
 }
 
 const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
+const cls = [classList]
 ---
 
 {
   name === "arrow-right" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path
+        fill-rule="evenodd"
+        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "arrow-left" && (
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+      <path
+        style="transform:rotate(180deg);transform-origin:50% 50%"
         fill-rule="evenodd"
         d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
         clip-rule="evenodd"
@@ -24,7 +38,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 {
   name === "hamburger" && (
     <svg
-      class:list={[classList]}
+      class:list={[cls]}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -44,7 +58,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "camera" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
     </svg>
   )
@@ -52,7 +66,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "flag-en" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <clipPath id="s">
         <path d="M0,0 v30 h60 v-30 z" />
       </clipPath>
@@ -75,7 +89,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "flag-ar" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g fill-rule="nonzero" transform="matrix(0.05615100637078285, 0, 0, 0.05615100637078285, -4.349999904632568, 0)">
         <path
           fill="#C1272D"
@@ -92,7 +106,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "flag-fr" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path
         fill="#E1000F"
         d="M 13.478 0 L 18.908 0 C 19.509 0.006 20 0.714 20 1.58 L 20 18.42 C 20 19.289 19.505 19.999 18.901 20 L 13.478 20 L 13.478 0 Z M 0.59 19.819 Z M 0.218 19.361 Z"
@@ -111,7 +125,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "dark" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z" />
     </svg>
   )
@@ -119,7 +133,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "light" && (
-    <svg class:list={[classList]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z" />
     </svg>
   )
@@ -127,13 +141,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "bbc-news" && (
-    <svg
-      class:list={[classList]}
-      fill="currentColor"
-      viewBox="0 0 19.5 11"
-      xmlns="http://www.w3.org/2000/svg"
-      {...attrs}
-    >
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 19.5 11" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g transform="matrix(1, 0, 0, 1, 110.79, -207.39)">
         <path d="m -100.38905,210.21737 c 0,0.47553 -0.59197,0.44732 -0.59197,0.44732 h -0.59196 v -0.85929 h 0.59196 c 0.60903,-0.005 0.59197,0.41197 0.59197,0.41197 m -1.18393,-1.72245 h 0.45152 c 0.46858,0.0247 0.45021,0.37336 0.45021,0.37336 0,0.43324 -0.51715,0.4403 -0.51715,0.4403 h -0.38458 z m 1.07499,0.98264 c 0,0 0.40427,-0.17259 0.40164,-0.63041 0,0 0.0656,-0.75028 -0.93323,-0.8418 h -1.10255 v 3.14537 h 1.264 c 0,0 1.056609,0.003 1.056609,-0.88748 0,0 0.02626,-0.60609 -0.686469,-0.78568 m -2.85483,-2.08852 h 4.643853 v 4.37624 h -4.643853 z m -2.39149,2.82833 c 0,0.47553 -0.59197,0.44732 -0.59197,0.44732 h -0.59197 v -0.85929 h 0.59197 c 0.60903,-0.005 0.59197,0.41197 0.59197,0.41197 m -1.18394,-1.72245 h 0.45153 c 0.46858,0.0247 0.45021,0.37336 0.45021,0.37336 0,0.43324 -0.51715,0.4403 -0.51715,0.4403 h -0.38459 z m 1.075,0.98264 c 0,0 0.40426,-0.17259 0.40164,-0.63041 0,0 0.0656,-0.75028 -0.93323,-0.8418 h -1.10256 v 3.14537 h 1.264 c 0,0 1.05662,0.003 1.05662,-0.88748 0,0 0.0263,-0.60609 -0.68647,-0.78568 m -2.85483,-2.08852 h 4.64385 v 4.37624 h -4.64385 z m 14.406705,0.84181 v 0.58111 c 0,0 -0.567028,-0.34858 -1.193122,-0.3556 0,0 -1.169494,-0.0229 -1.221997,1.12096 0,0 -0.03938,1.05198 1.207559,1.11193 0,0 0.525026,0.0632 1.236436,-0.39063 v 0.60182 c 0,0 -0.955547,0.56718 -2.060726,0.13034 0,0 -0.929295,-0.33948 -0.964735,-1.45345 0,0 -0.03937,-1.14574 1.200997,-1.52607 0,0 0.330766,-0.12675 0.925357,-0.0704 0,-2e-5 0.355705,0.0352 0.870231,0.25003 m -3.696182,3.53442 h 4.643853 v -4.37624 h -4.643853 z" />
         <g transform="matrix(0.16997418,0,0,0.16997418,-135.15529,79.093968)">
@@ -149,13 +157,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "toefl" && (
-    <svg
-      class:list={[classList]}
-      fill="currentColor"
-      viewBox="0 0 150 46"
-      xmlns="http://www.w3.org/2000/svg"
-      {...attrs}
-    >
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 150 46" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g transform="matrix(0.14344000816345215, 0, 0, 0.14344000816345215, -12.533813476562514, -12.347351074218764)">
         <path d="m346.03 348.47v-107.03c0-1.1-.9-2-2-2h-29.76c-1.1 0-2-.9-2-2v-34.02c0-1.1.9-2 2-2h29.76c1.1 0 2-.9 2-2v-44.89c0-1.1.9-2 2-2h45.28c1.1 0 2 .9 2 2v44.89c0 1.1.9 2 2 2h42.56c1.1 0 2 .9 2 2v34.02c0 1.1-.9 2-2 2h-42.56c-1.1 0-2 .9-2 2v97.33c0 21.34 6.6 24.83 22.5 24.83h22.06c1.1 0 2 .9 2 2v34.51c0 1.07-.84 1.94-1.9 2-13.24.68-21.76.68-38.06.68-34.15-.01-55.88-10.09-55.88-54.32z" />
         <path d="m446.74 300.74c0-63.24 47.72-103.98 105.92-103.98 58.59 0 105.54 39.96 105.54 103.98 0 64.41-47.34 105.92-105.54 105.92-58.97 0-105.92-40.73-105.92-105.92zm160.25 0c0-36.47-22.12-62.08-54.32-62.08-32.98 0-54.71 25.22-54.71 62.08 0 38.02 22.12 64.02 54.71 64.02 32.2 0 54.32-25.61 54.32-64.02z" />
@@ -179,13 +181,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "toeic" && (
-    <svg
-      class:list={[classList]}
-      fill="currentColor"
-      viewBox="0 0 171.2 35.8"
-      xmlns="http://www.w3.org/2000/svg"
-      {...attrs}
-    >
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 171.2 35.8" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g fill-rule="evenodd" clip-rule="evenodd" transform="matrix(1, 0, 0, 1, -13.057000160217285, -78.0050048828125)">
         <path d="M13.057 89.05h34.361V78.619H13.057V89.05zM23.079 113.799h14.113v-22.09H23.079v22.09zM120.438 113.799h14.318v-35.18h-14.318v35.18z" />
         <path
@@ -201,13 +197,7 @@ const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
 
 {
   name === "ielts" && (
-    <svg
-      class:list={[classList]}
-      fill="currentColor"
-      viewBox="0 0 175.7 58.7"
-      xmlns="http://www.w3.org/2000/svg"
-      {...attrs}
-    >
+    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 175.7 58.7" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <defs>
         <mask id="text">
           <rect width="100%" height="100%" fill="white" />
