@@ -51,9 +51,7 @@ import Video from "~/components/Video.astro"
   <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 hover:text-slate-400">BBC News Logo</Icon>
 </Section>
 
-<Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية">
-  نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.
-
+<Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية" blurb="نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.">
   <SectionItem slot="grid" icon-name="toefl">
     ### Test of English as a Foreign Language
 
@@ -103,4 +101,58 @@ import Video from "~/components/Video.astro"
   blurb="في هذا التقرير الذي يستغرق 4 دقائق من أخبار البي بي سي من عام 2013، يستكشف هذا التقرير الذي يستغرق 4 دقائق صعود أكاديمية اللغة البريطانية إلى الصدارة كمؤسسة لغوية موثوقة. مع ما يقرب من عقد من الزمن من التفاني في مساعدة المتعلمين على التفوق، لا تزال الأكاديمية رائدة في تقديم تعليم عالمي المستوى وشهادات معترف بها عالميًا. تعرّف كيف ساهمت أساليب المدرسة المبتكرة وبرامجها القابلة للتكيف ومصداقيتها الدولية في تشكيل تأثيرها الدائم على الطلاب والمهنيين في جميع أنحاء العالم."
 >
   <Video src={bbcNews} controls />
+</Section>
+
+<Section title="لماذا أكاديمية اللغة البريطانية هي خيارك الأفضل" tagline="حيث يلتقي تعلم اللغة مع النجاح">
+  <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### جودة تدريس استثنائية
+
+    يقدم مدرسونا ذوو الخبرة والمؤهلات العالية دروساً مخصصة تلبي احتياجاتك التعليمية الفريدة، مما يضمن حصولك على أفضل توجيه ممكن.
+
+  </SectionItem>
+
+{" "}
+
+<SectionItem
+  slot="grid"
+  icon-name="clipboard-check"
+  wrapper-class="w-16 h-16 rounded-full bg-primary-500/20"
+  icon-class="p-2 text-primary"
+>
+  ### برامج فعالة ومصممة خصيصًا نقدم مجموعة كبيرة ومتنوعة من الدورات والبرامج، كل منها مصمم بعناية لتلبية احتياجات
+  المتعلمين من جميع الأعمار - من الأطفال إلى البالغين والمهنيين.
+</SectionItem>
+
+{" "}
+
+<SectionItem
+  slot="grid"
+  icon-name="award"
+  wrapper-class="w-16 h-16 rounded-full bg-primary-500/20"
+  icon-class="p-2 text-primary"
+>
+  ### المؤهلات المعتمدة احصل على شهادات معترف بها عالميًا ستساعدك على التميز، سواء كنت تهدف إلى تحقيق إنجازات أكاديمية
+  أو مهنية أو شخصية.
+</SectionItem>
+
+  <SectionItem slot="grid" icon-name="briefcase" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### المشورة المهنية والتوجيه المهني
+
+    يقدم لك مستشارونا المتمرسون إرشادات الخبراء حول كيفية استخدام مهاراتك اللغوية للتقدم الوظيفي أو لمواصلة الدراسة أو للحصول على فرص دولية.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="heart" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### الدعم المخصص والمتابعة الفعالة
+
+    نحن ملتزمون بنجاحك. ولهذا السبب نقدم لك الدعم المستمر وتتبع التقدم المحرز والملاحظات الشخصية، مما يضمن لك أن تكون دائماً على الطريق الصحيح.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="face-grin" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### أجواء ودية وشاملة
+
+    نحن نؤمن بتعزيز بيئة تعليمية إيجابية وداعمة. ستجد في الأكاديمية البريطانية للغات أجواءً دافئة وترحيبية تحفزك على النجاح.
+
+  </SectionItem>
 </Section>

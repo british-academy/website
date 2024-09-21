@@ -1,30 +1,54 @@
 ---
 import type { HTMLAttributes } from "astro/types"
+import { twMerge } from "tailwind-merge"
 import Icon from "~/components/Icon.astro"
 
 type Props = HTMLAttributes<"div"> & {
   "icon-name"?: string
+  "icon-color"?: string
+  "icon-class"?: string
+  "wrapper-class"?: string
 }
-const { class: classList, "icon-name": iconName, ...attrs } = Astro.props
+const {
+  class: classList,
+  "icon-name": iconName,
+  "icon-color": iconColor = "default",
+  "icon-class": iconClass,
+  "wrapper-class": wrapperClass,
+  ...attrs
+} = Astro.props
+
+const cls = twMerge(["text-gray-500 dark:text-gray-400 mb-8 prose dark:prose-invert", classList])
+
+const iconWrapperCls = twMerge([
+  "flex items-center mb-4 h-14",
+
+  // flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900
+  wrapperClass,
+])
+
+const iconCls = twMerge([
+  "w-32",
+
+  iconColor === "default" && "text-blue-700/80 dark:text-blue-100/80",
+  iconColor === "green" && "text-green-700/80 dark:text-green-100/80",
+  iconColor === "red" && "text-red-700/80 dark:text-red-100/80",
+  iconColor === "yellow" && "text-yellow-700/80 dark:text-yellow-100/80",
+  iconColor === "purple" && "text-purple-700/80 dark:text-purple-100/80",
+  iconColor === "primary" && "text-primary-700/80 dark:text-primary-100/80",
+  iconColor === "secondary" && "text-secondary-700/80 dark:text-secondary-100/80",
+
+  iconClass,
+])
 ---
 
-<div class="text-gray-500 dark:text-gray-400 mb-8" {...attrs}>
+<div class={cls} {...attrs}>
   {
     iconName && (
-      <div class="flex items-center mb-4 w-full h-14 text-secondary-700">
-        <Icon name={iconName} class="w-32 text-gray-700/80 dark:text-white/80" />
+      <div class={iconWrapperCls}>
+        <Icon name={iconName} class={iconCls} />
       </div>
     )
   }
   <slot />
 </div>
-
-<style>
-  div :global(h3) {
-    @apply text-base md:text-lg font-bold mb-4;
-  }
-
-  div :global(p) {
-    @apply mb-2;
-  }
-</style>

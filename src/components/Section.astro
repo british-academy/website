@@ -9,12 +9,13 @@ type Props = HTMLAttributes<"section"> & {
   title: string
   tagline?: string
   blurb?: string
+  hero?: boolean
   background?: string | ImageMetadata
   align?: "center"
   mode?: "dark" | "light" | "auto"
   type?: "grid"
 }
-const { align, mode = "auto", type, class: classList, title, tagline, blurb, background, ...attrs } = Astro.props
+const { align, mode = "auto", type, class: classList, hero, title, tagline, blurb, background, ...attrs } = Astro.props
 const {
   default: defaultSlot,
   actions: actionsSlot,
@@ -97,6 +98,8 @@ const blurbCls = twMerge([
   mode === "dark" && "text-slate-300",
   mode === "light" && "text-slate-600",
 ])
+
+const Title = hero ? "h1" : "h2"
 ---
 
 <section class={sectionCls} {...attrs}>
@@ -104,9 +107,9 @@ const blurbCls = twMerge([
     <div class={introDivCls}>
       {
         title && (
-          <h2 id={slugify(title)} class={titleCls}>
+          <Title id={slugify(title)} class={titleCls}>
             {title}
-          </h2>
+          </Title>
         )
       }
       {tagline && <p class={taglineCls}>{tagline}</p>}

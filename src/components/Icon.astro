@@ -1,18 +1,18 @@
 ---
 import type { HTMLAttributes } from "astro/types"
+import { twMerge } from "tailwind-merge"
 
 interface Props extends HTMLAttributes<"svg"> {
   name: string
-  viewBox?: string
 }
 
-const { name, viewBox = "0 0 20 20", class: classList, ...attrs } = Astro.props
-const cls = [classList]
+const { name, class: classList, ...attrs } = Astro.props
+const cls = twMerge([classList])
 ---
 
 {
   name === "arrow-right" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path
         fill-rule="evenodd"
         d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -24,7 +24,7 @@ const cls = [classList]
 
 {
   name === "arrow-left" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path
         style="transform:rotate(180deg);transform-origin:50% 50%"
         fill-rule="evenodd"
@@ -37,14 +37,7 @@ const cls = [classList]
 
 {
   name === "hamburger" && (
-    <svg
-      class:list={[cls]}
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 17 14"
-      {...attrs}
-    >
+    <svg class={cls} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14" {...attrs}>
       <path
         stroke="currentColor"
         stroke-linecap="round"
@@ -58,15 +51,93 @@ const cls = [classList]
 
 {
   name === "camera" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
     </svg>
   )
 }
 
 {
+  name === "open-book" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        fill-rule="evenodd"
+        d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "clipboard-check" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        fill-rule="evenodd"
+        d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "graduation-cap" && (
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+    </svg>
+  )
+}
+
+{
+  name === "award" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M11 9a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" />
+      <path
+        fill-rule="evenodd"
+        d="M9.896 3.051a2.681 2.681 0 0 1 4.208 0c.147.186.38.282.615.255a2.681 2.681 0 0 1 2.976 2.975.681.681 0 0 0 .254.615 2.681 2.681 0 0 1 0 4.208.682.682 0 0 0-.254.615 2.681 2.681 0 0 1-2.976 2.976.681.681 0 0 0-.615.254 2.682 2.682 0 0 1-4.208 0 .681.681 0 0 0-.614-.255 2.681 2.681 0 0 1-2.976-2.975.681.681 0 0 0-.255-.615 2.681 2.681 0 0 1 0-4.208.681.681 0 0 0 .255-.615 2.681 2.681 0 0 1 2.976-2.975.681.681 0 0 0 .614-.255ZM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
+        clip-rule="evenodd"
+      />
+      <path d="M5.395 15.055 4.07 19a1 1 0 0 0 1.264 1.267l1.95-.65 1.144 1.707A1 1 0 0 0 10.2 21.1l1.12-3.18a4.641 4.641 0 0 1-2.515-1.208 4.667 4.667 0 0 1-3.411-1.656Zm7.269 2.867 1.12 3.177a1 1 0 0 0 1.773.224l1.144-1.707 1.95.65A1 1 0 0 0 19.915 19l-1.32-3.93a4.667 4.667 0 0 1-3.4 1.642 4.643 4.643 0 0 1-2.53 1.21Z" />
+    </svg>
+  )
+}
+
+{
+  name === "briefcase" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        fill-rule="evenodd"
+        d="M10 2a3 3 0 0 0-3 3v1H5a3 3 0 0 0-3 3v2.382l1.447.723.005.003.027.013.12.056c.108.05.272.123.486.212.429.177 1.056.416 1.834.655C7.481 13.524 9.63 14 12 14c2.372 0 4.52-.475 6.08-.956.78-.24 1.406-.478 1.835-.655a14.028 14.028 0 0 0 .606-.268l.027-.013.005-.002L22 11.381V9a3 3 0 0 0-3-3h-2V5a3 3 0 0 0-3-3h-4Zm5 4V5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v1h6Zm6.447 7.894.553-.276V19a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5.382l.553.276.002.002.004.002.013.006.041.02.151.07c.13.06.318.144.557.242.478.198 1.163.46 2.01.72C7.019 15.476 9.37 16 12 16c2.628 0 4.98-.525 6.67-1.044a22.95 22.95 0 0 0 2.01-.72 15.994 15.994 0 0 0 .707-.312l.041-.02.013-.006.004-.002.001-.001-.431-.866.432.865ZM12 10a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H12Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "heart" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
+    </svg>
+  )
+}
+
+{
+  name === "face-grin" && (
+    <svg class={cls} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        fill-rule="evenodd"
+        d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM7 12.5a.5.5 0 0 1 .495.43.762.762 0 0 0 .157.096c.213.106.553.208 1.005.295.896.173 2.111.262 3.343.262 1.232 0 2.447-.09 3.343-.262.452-.087.792-.19 1.006-.295a.764.764 0 0 0 .156-.096.5.5 0 0 1 .995.07c0 1.19-.644 2.438-1.618 3.375C14.9 17.319 13.531 18 12 18c-1.531 0-2.9-.681-3.882-1.625C7.144 15.438 6.5 14.19 6.5 13a.5.5 0 0 1 .5-.5Zm9.519.417.003-.004-.003.004Zm-9.038 0a.017.017 0 0 1-.003-.004l.003.004Zm.901-4.853L9 6.81l.619 1.253 1.381.2-1 .976.236 1.376-1.237-.65-1.235.65L8 9.239l-1-.975 1.382-.2Zm6 0L15 6.81l.619 1.253 1.381.2-1 .976.236 1.376-1.237-.65-1.235.65L14 9.239l-1-.975 1.382-.2Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  )
+}
+
+{
   name === "flag-en" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <clipPath id="s">
         <path d="M0,0 v30 h60 v-30 z" />
       </clipPath>
@@ -89,7 +160,7 @@ const cls = [classList]
 
 {
   name === "flag-ar" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g fill-rule="nonzero" transform="matrix(0.05615100637078285, 0, 0, 0.05615100637078285, -4.349999904632568, 0)">
         <path
           fill="#C1272D"
@@ -106,7 +177,7 @@ const cls = [classList]
 
 {
   name === "flag-fr" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path
         fill="#E1000F"
         d="M 13.478 0 L 18.908 0 C 19.509 0.006 20 0.714 20 1.58 L 20 18.42 C 20 19.289 19.505 19.999 18.901 20 L 13.478 20 L 13.478 0 Z M 0.59 19.819 Z M 0.218 19.361 Z"
@@ -125,7 +196,7 @@ const cls = [classList]
 
 {
   name === "dark" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z" />
     </svg>
   )
@@ -133,7 +204,7 @@ const cls = [classList]
 
 {
   name === "light" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z" />
     </svg>
   )
@@ -141,7 +212,7 @@ const cls = [classList]
 
 {
   name === "bbc-news" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 19.5 11" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 19.5 11" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g transform="matrix(1, 0, 0, 1, 110.79, -207.39)">
         <path d="m -100.38905,210.21737 c 0,0.47553 -0.59197,0.44732 -0.59197,0.44732 h -0.59196 v -0.85929 h 0.59196 c 0.60903,-0.005 0.59197,0.41197 0.59197,0.41197 m -1.18393,-1.72245 h 0.45152 c 0.46858,0.0247 0.45021,0.37336 0.45021,0.37336 0,0.43324 -0.51715,0.4403 -0.51715,0.4403 h -0.38458 z m 1.07499,0.98264 c 0,0 0.40427,-0.17259 0.40164,-0.63041 0,0 0.0656,-0.75028 -0.93323,-0.8418 h -1.10255 v 3.14537 h 1.264 c 0,0 1.056609,0.003 1.056609,-0.88748 0,0 0.02626,-0.60609 -0.686469,-0.78568 m -2.85483,-2.08852 h 4.643853 v 4.37624 h -4.643853 z m -2.39149,2.82833 c 0,0.47553 -0.59197,0.44732 -0.59197,0.44732 h -0.59197 v -0.85929 h 0.59197 c 0.60903,-0.005 0.59197,0.41197 0.59197,0.41197 m -1.18394,-1.72245 h 0.45153 c 0.46858,0.0247 0.45021,0.37336 0.45021,0.37336 0,0.43324 -0.51715,0.4403 -0.51715,0.4403 h -0.38459 z m 1.075,0.98264 c 0,0 0.40426,-0.17259 0.40164,-0.63041 0,0 0.0656,-0.75028 -0.93323,-0.8418 h -1.10256 v 3.14537 h 1.264 c 0,0 1.05662,0.003 1.05662,-0.88748 0,0 0.0263,-0.60609 -0.68647,-0.78568 m -2.85483,-2.08852 h 4.64385 v 4.37624 h -4.64385 z m 14.406705,0.84181 v 0.58111 c 0,0 -0.567028,-0.34858 -1.193122,-0.3556 0,0 -1.169494,-0.0229 -1.221997,1.12096 0,0 -0.03938,1.05198 1.207559,1.11193 0,0 0.525026,0.0632 1.236436,-0.39063 v 0.60182 c 0,0 -0.955547,0.56718 -2.060726,0.13034 0,0 -0.929295,-0.33948 -0.964735,-1.45345 0,0 -0.03937,-1.14574 1.200997,-1.52607 0,0 0.330766,-0.12675 0.925357,-0.0704 0,-2e-5 0.355705,0.0352 0.870231,0.25003 m -3.696182,3.53442 h 4.643853 v -4.37624 h -4.643853 z" />
         <g transform="matrix(0.16997418,0,0,0.16997418,-135.15529,79.093968)">
@@ -157,7 +228,7 @@ const cls = [classList]
 
 {
   name === "toefl" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 150 46" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 150 46" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g transform="matrix(0.14344000816345215, 0, 0, 0.14344000816345215, -12.533813476562514, -12.347351074218764)">
         <path d="m346.03 348.47v-107.03c0-1.1-.9-2-2-2h-29.76c-1.1 0-2-.9-2-2v-34.02c0-1.1.9-2 2-2h29.76c1.1 0 2-.9 2-2v-44.89c0-1.1.9-2 2-2h45.28c1.1 0 2 .9 2 2v44.89c0 1.1.9 2 2 2h42.56c1.1 0 2 .9 2 2v34.02c0 1.1-.9 2-2 2h-42.56c-1.1 0-2 .9-2 2v97.33c0 21.34 6.6 24.83 22.5 24.83h22.06c1.1 0 2 .9 2 2v34.51c0 1.07-.84 1.94-1.9 2-13.24.68-21.76.68-38.06.68-34.15-.01-55.88-10.09-55.88-54.32z" />
         <path d="m446.74 300.74c0-63.24 47.72-103.98 105.92-103.98 58.59 0 105.54 39.96 105.54 103.98 0 64.41-47.34 105.92-105.54 105.92-58.97 0-105.92-40.73-105.92-105.92zm160.25 0c0-36.47-22.12-62.08-54.32-62.08-32.98 0-54.71 25.22-54.71 62.08 0 38.02 22.12 64.02 54.71 64.02 32.2 0 54.32-25.61 54.32-64.02z" />
@@ -181,7 +252,7 @@ const cls = [classList]
 
 {
   name === "toeic" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 171.2 35.8" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 171.2 35.8" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <g fill-rule="evenodd" clip-rule="evenodd" transform="matrix(1, 0, 0, 1, -13.057000160217285, -78.0050048828125)">
         <path d="M13.057 89.05h34.361V78.619H13.057V89.05zM23.079 113.799h14.113v-22.09H23.079v22.09zM120.438 113.799h14.318v-35.18h-14.318v35.18z" />
         <path
@@ -197,7 +268,7 @@ const cls = [classList]
 
 {
   name === "ielts" && (
-    <svg class:list={[cls]} fill="currentColor" viewBox="0 0 175.7 58.7" xmlns="http://www.w3.org/2000/svg" {...attrs}>
+    <svg class={cls} fill="currentColor" viewBox="0 0 175.7 58.7" xmlns="http://www.w3.org/2000/svg" {...attrs}>
       <defs>
         <mask id="text">
           <rect width="100%" height="100%" fill="white" />
