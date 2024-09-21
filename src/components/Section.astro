@@ -1,17 +1,27 @@
 ---
 import { type HTMLAttributes } from "astro/types"
 import { t, defaultLocale } from "~/utils/i18n"
+import { slugify } from "~/utils/format"
 import { Image } from "astro:assets"
 import { twMerge } from "tailwind-merge"
 
 type Props = HTMLAttributes<"section"> & {
   title: string
+  tagline?: string
+  blurb?: string
   background?: string | ImageMetadata
   align?: "center"
   mode?: "dark" | "light" | "auto"
+  type?: "grid"
 }
-const { align, mode = "auto", class: classList, title, background, ...attrs } = Astro.props
-const { default: defaultSlot, actions: actionsSlot, featured: featuredSlot, grid: gridSlot } = Astro.slots
+const { align, mode = "auto", type, class: classList, title, tagline, blurb, background, ...attrs } = Astro.props
+const {
+  default: defaultSlot,
+  actions: actionsSlot,
+  featured: featuredSlot,
+  grid: gridSlot,
+  items: itemsSlot,
+} = Astro.slots
 const l = Astro.currentLocale || defaultLocale
 
 // if we have image metadata as background we add that
@@ -26,7 +36,9 @@ const sectionCls = twMerge([
 ])
 
 const divCls = twMerge([
-  "py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-12",
+  "py-8 px-4 mx-auto max-w-screen-xl",
+  type !== "grid" && "lg:py-16 lg:px-12",
+  type === "grid" && "gap-8 items-center xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6",
 
   background && typeof background !== "string" && "relative z-10",
 
@@ -36,7 +48,8 @@ const divCls = twMerge([
 ])
 
 const introDivCls = twMerge([
-  "max-w-screen-lg mb-8 lg:mb-16 sm:text-xl",
+  type === "grid" && "mt-4 md:mt-0",
+  type !== "grid" && "max-w-screen-lg mb-8 lg:mb-16 sm:text-xl",
 
   mode === "auto" && "text-slate-500 dark:text-slate-400",
   mode === "dark" && "text-slate-400",
@@ -73,9 +86,18 @@ const featuredBodyCls = twMerge([
 <section class={sectionCls} {...attrs}>
   <div class={divCls}>
     <div class={introDivCls}>
-      {title && <h1 class={titleCls}>{title}</h1>}
-      {defaultSlot && <slot />}
+      {
+        title && (
+          <h2 id={slugify(title)} class={titleCls}>
+            {title}
+          </h2>
+        )
+      }
+      {tagline && <p class="mb-4 text-xl text-slate-700 dark:text-slate-200 italic">{tagline}</p>}
+      {blurb && <p class="mb-6 font-light text-slate-600 md:text-lg dark:text-slate-300">{blurb}</p>}
     </div>
+
+    {defaultSlot && <slot />}
 
     {
       actionsSlot && (
@@ -103,6 +125,8 @@ const featuredBodyCls = twMerge([
         </div>
       )
     }
+
+    {itemsSlot && <slot name="items" />}
   </div>
   {
     background && typeof background !== "string" && (

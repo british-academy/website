@@ -11,41 +11,42 @@ image:
 ---
 
 import students from "~/assets/images/students.jpg"
+import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
+import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 
 import Button from "~/components/Button.astro"
 import Icon from "~/components/Icon.astro"
+import { Image } from "astro:assets"
 import Section from "~/components/Section.astro"
 import SectionItem from "~/components/SectionItem.astro"
+import Video from "~/components/Video.astro"
 
-<Section title={frontmatter.title} background={students} mode="dark" align="center">
-  <p>{frontmatter.description}</p>
-
-{" "}
-
-<Button
-  slot="actions"
-  type="link"
-  href="#"
-  icon-class="rtl:rotate-180"
-  icon-right="arrow-right"
-  color="primary"
-  size="base"
-  rounded="lg"
->
-  اعرف المزيد
-</Button>
-<Button
-  slot="actions"
-  type="link"
-  href="#"
-  icon-class="rtl:rotate-180"
-  icon-left="camera"
-  color="secondary"
-  size="base"
-  rounded="lg"
->
-  شاهد الفيديو
-</Button>
+<Section
+  title={frontmatter.title}
+  blurb={frontmatter.description}
+  background={students}
+  mode="dark"
+  align="center">
+  <Button
+    slot="actions"
+    type="link"
+    href="#"
+    icon-class="rtl:rotate-180"
+    icon-right="arrow-right"
+    color="primary"
+    size="base"
+    rounded="lg"
+  >اعرف المزيد</Button>
+  <Button
+    slot="actions"
+    type="link"
+    href="#akadymyh-allghh-albrytanyh-arth-mn-atqan-allghh"
+    icon-class="rtl:rotate-180"
+    icon-left="camera"
+    color="secondary"
+    size="base"
+    rounded="lg"
+  >شاهد الفيديو</Button>
 
   <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 hover:text-slate-400">BBC News Logo</Icon>
 </Section>
@@ -79,4 +80,27 @@ import SectionItem from "~/components/SectionItem.astro"
     سواءً كان لأغراض أكاديمية أو لأغراض الهجرة، يعد امتحان ”IELTS“ أحد أكثر الامتحانات المقبولة على نطاق واسع في جميع أنحاء العالم. وتركيزه الواسع يجعله مثالياً لمن يتابعون تعليمهم العالي، أو يعملون في الخارج، أو حتى يهاجرون إلى البلدان الناطقة باللغة الإنجليزية.
 
   </SectionItem>
+</Section>
+
+<Section
+  class="bg-slate-100 dark:bg-slate-800"
+  type="grid"
+  title="معتمدة من جامعة كامبريدج"
+  tagline="وضع معيار التميز في تعليم اللغات"
+  blurb="تفخر أكاديمية اللغة البريطانية بكونها معتمدة من جامعة كامبريدج المرموقة. فشهاداتنا معترف بها دولياً، مما يضمن تميز مؤهلاتك أينما ذهبت. ولا يعكس اعتماد كامبريدج المعايير العالية لبرامجنا فحسب، بل يضمن أيضاً حصول دارسينا على تعليم عالمي المستوى يتماشى مع التوقعات العالمية."
+>
+  <Image
+    slot="items"
+    class="w-full"
+    src={cambridge}
+    alt="صورة لكلية كينجز كامبريدج كينغز كوليدج"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="أكاديمية اللغة البريطانية: إرث من إتقان اللغة"
+  blurb="في هذا التقرير الذي يستغرق 4 دقائق من أخبار البي بي سي من عام 2013، يستكشف هذا التقرير الذي يستغرق 4 دقائق صعود أكاديمية اللغة البريطانية إلى الصدارة كمؤسسة لغوية موثوقة. مع ما يقرب من عقد من الزمن من التفاني في مساعدة المتعلمين على التفوق، لا تزال الأكاديمية رائدة في تقديم تعليم عالمي المستوى وشهادات معترف بها عالميًا. تعرّف كيف ساهمت أساليب المدرسة المبتكرة وبرامجها القابلة للتكيف ومصداقيتها الدولية في تشكيل تأثيرها الدائم على الطلاب والمهنيين في جميع أنحاء العالم."
+>
+  <Video src={bbcNews} controls />
 </Section>
