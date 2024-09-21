@@ -146,13 +146,14 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
+  type="grid"
   title="Flexible Courses for Everyone"
   tagline="Designed for Children, Teens, Adults, and Professionals"
   blurb="No matter your age or goals, British Language Academy offers a wide range of programs tailored to meet your specific needs. From foundational language skills for children to advanced business communication for professionals, we provide the right learning path for everyone."
 >
   <Image
     slot="items"
-    class="w-full"
+    class="w-full order-first"
     src={youngAndOld}
     alt="Young and Old are Studying together"
     widths={[240, 360, 480, 720, 1080]}
