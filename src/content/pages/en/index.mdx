@@ -13,6 +13,7 @@ image:
 import students from "~/assets/images/students.jpg"
 import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
 import Button from "~/components/Button.astro"
 import Icon from "~/components/Icon.astro"
@@ -144,8 +145,16 @@ import Video from "~/components/Video.astro"
   </SectionItem>
 </Section>
 
-## Flexible Courses for Everyone
-
-> _Designed for Children, Teens, Adults, and Professionals_
-
-No matter your age or goals, British Language Academy offers a wide range of programs tailored to meet your specific needs. From foundational language skills for children to advanced business communication for professionals, we provide the right learning path for everyone.
+<Section
+  title="Flexible Courses for Everyone"
+  tagline="Designed for Children, Teens, Adults, and Professionals"
+  blurb="No matter your age or goals, British Language Academy offers a wide range of programs tailored to meet your specific needs. From foundational language skills for children to advanced business communication for professionals, we provide the right learning path for everyone."
+>
+  <Image
+    slot="items"
+    class="w-full"
+    src={youngAndOld}
+    alt="Young and Old are Studying together"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>

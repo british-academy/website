@@ -13,6 +13,7 @@ image:
 import students from "~/assets/images/students.jpg"
 import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
 import Button from "~/components/Button.astro"
 import Icon from "~/components/Icon.astro"
@@ -138,4 +139,18 @@ import Video from "~/components/Video.astro"
     نحن نؤمن بتعزيز بيئة تعليمية إيجابية وداعمة. ستجد في الأكاديمية البريطانية للغات أجواءً دافئة وترحيبية تحفزك على النجاح.
 
   </SectionItem>
+</Section>
+
+<Section
+  title="دورات مرنة للجميع"
+  tagline="مصممة للأطفال والمراهقين والبالغين والمحترفين"
+  blurb="بغض النظر عن عمرك أو أهدافك، تقدم أكاديمية اللغة البريطانية مجموعة كبيرة من البرامج المصممة خصيصاً لتلبية احتياجاتك الخاصة. بدءاً من المهارات اللغوية التأسيسية للأطفال إلى التواصل المتقدم في مجال الأعمال للمحترفين، فنحن نوفر المسار التعليمي المناسب للجميع."
+>
+  <Image
+    slot="items"
+    class="w-full"
+    src={youngAndOld}
+    alt="الصغار والكبار يدرسون معًا"
+    widths={[240, 360, 480, 720, 1080]}
+  />
 </Section>
