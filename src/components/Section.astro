@@ -81,6 +81,22 @@ const featuredBodyCls = twMerge([
   mode === "dark" && "text-slate-600",
   mode === "light" && "text-slate-400",
 ])
+
+const taglineCls = twMerge([
+  "mb-4 text-xl italic",
+
+  mode === "auto" && "text-slate-700 dark:text-slate-200",
+  mode === "dark" && "text-slate-200",
+  mode === "light" && "text-slate-700",
+])
+
+const blurbCls = twMerge([
+  "mb-6 font-light md:text-lg",
+
+  mode === "auto" && "text-slate-600 dark:text-slate-300",
+  mode === "dark" && "text-slate-300",
+  mode === "light" && "text-slate-600",
+])
 ---
 
 <section class={sectionCls} {...attrs}>
@@ -93,8 +109,8 @@ const featuredBodyCls = twMerge([
           </h2>
         )
       }
-      {tagline && <p class="mb-4 text-xl text-slate-700 dark:text-slate-200 italic">{tagline}</p>}
-      {blurb && <p class="mb-6 font-light text-slate-600 md:text-lg dark:text-slate-300">{blurb}</p>}
+      {tagline && <p class={taglineCls}>{tagline}</p>}
+      {blurb && <p class={blurbCls}>{blurb}</p>}
     </div>
 
     {defaultSlot && <slot />}
