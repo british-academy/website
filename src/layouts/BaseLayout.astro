@@ -15,7 +15,7 @@ const { showHeader = true, ...head } = Astro.props
     <BaseHead {...head} />
     <ViewTransitions />
   </head>
-  <body class="bg-slate-100 dark:bg-slate-900 scroll-smooth">
+  <body class="bg-slate-100 dark:bg-slate-900 scroll-smooth pt-[73px]">
     {showHeader && <Navbar />}
     <slot />
   </body>
