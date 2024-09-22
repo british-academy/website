@@ -47,6 +47,11 @@ export const arabicToLatinMap = {
 
 export const translations = {
   en: {
+    "footer.legal": "Legal",
+    "footer.name": "British Language Academy",
+    "footer.privacy": "Privacy Policy",
+    "footer.rights": "All Rights Reserved.",
+    "footer.terms": "Terms & Conditions",
     "head.rss_feed": "RSS Feed",
     "hero.featured_on": "Featured on",
     "logo.alt": "Logo of the British Language Academy",
@@ -57,6 +62,11 @@ export const translations = {
   },
 
   fr: {
+    "footer.legal": "Juridique",
+    "footer.name": "British Language Academy",
+    "footer.privacy": "Politique de confidentialité",
+    "footer.rights": "Tous droits réservés.",
+    "footer.terms": "Conditions générales d'utilisation",
     "head.rss_feed": "Flux RSS",
     "hero.featured_on": "À l'honneur",
     "logo.alt": "Logo de l'académie des langues birmanes",
@@ -69,6 +79,11 @@ export const translations = {
   },
 
   ar: {
+    "footer.legal": "قانوني",
+    "footer.name": "أكاديمية اللغة البريطانية",
+    "footer.privacy": "سياسة الخصوصية",
+    "footer.rights": "جميع الحقوق محفوظة.",
+    "footer.terms": "الشروط والأحكام",
     "head.rss_feed": "موجز RSS",
     "hero.featured_on": "تم التكريم في",
     "logo.alt": "شعار أكاديمية بيرتيش للغات",
