@@ -37,9 +37,8 @@ const sectionCls = twMerge([
 ])
 
 const divCls = twMerge([
-  "py-8 px-4 mx-auto max-w-screen-xl",
-  type !== "grid" && "lg:py-16 lg:px-12",
-  type === "grid" && "gap-8 items-center xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6",
+  "py-8 px-4 lg:py-16 lg:px-12 mx-auto max-w-screen-xl",
+  type === "grid" && "gap-8 items-center xl:gap-16 md:grid md:grid-cols-2",
 
   background && typeof background !== "string" && "relative z-10",
 
@@ -76,7 +75,7 @@ const featuredHeaderCls = twMerge([
 ])
 
 const featuredBodyCls = twMerge([
-  "flex flex-wrap justify-center items-center mt-8 sm:justify-between",
+  "flex flex-wrap justify-center items-center mt-8",
 
   mode === "auto" && "text-slate-400 dark:text-slate-600",
   mode === "dark" && "text-slate-600",
