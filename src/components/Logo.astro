@@ -1,35 +1,35 @@
 ---
+import { type HTMLAttributes } from "astro/types"
 import { getRelativeLocaleUrl } from "astro:i18n"
 import { defaultLocale, logo } from "~/utils/i18n"
-const locale = Astro.currentLocale || defaultLocale
+import { twMerge } from "tailwind-merge"
+type Props = HTMLAttributes<"a"> & {}
+const { class: classList, ...attrs } = Astro.props
+const l = Astro.currentLocale || defaultLocale
 ---
 
-<a href={getRelativeLocaleUrl(locale)}>
-  <span>{logo(locale, "first")}</span>
-  <svg viewBox="0 0 90 82" fill="currentColor">
+<a
+  class={twMerge([
+    "text-primary-500 flex items-center space-x-0.5 rtl:space-x-reverse font-['Roboto_Slab']",
+    classList,
+  ])}
+  href={getRelativeLocaleUrl(l)}
+  {...attrs}
+>
+  <span
+    class="self-center text-base min-[360px]:text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold whitespace-nowrap"
+  >
+    {logo(l, "first")}
+  </span>
+  <svg class="-mb-1 h-4 sm:h-6 md:h-8" viewBox="0 0 90 82" fill="currentColor">
     <path
       d="M 7 0 C 5.116 0 3.246 0.641 1.937 1.97 C 0.629 3.299 0 5.172 0 7.003 L 0 47.02 C 0 48.851 0.629 50.708 1.937 52.022 C 3.245 53.336 5.091 53.98 6.937 54.023 C 6.958 54.023 6.979 54.023 7 54.023 L 10 54.023 L 10 67.028 C 10.009 68.189 10.757 69.311 11.824 69.766 C 12.892 70.221 14.219 69.983 15.062 69.185 L 31.156 54.023 L 71 54.023 C 72.883 54.023 74.753 53.35 76.062 52.022 C 77.371 50.693 78 48.851 78 47.02 L 78 7.003 C 78 5.172 77.371 3.299 76.062 1.97 C 74.753 0.641 72.884 0 71 0 C 49.93 0 28.069 0 7 0 Z M 7 6.003 C 28.069 6.003 49.93 6.003 71 6.003 C 71.608 6.003 71.744 6.121 71.812 6.19 C 71.88 6.259 72 6.422 72 7.003 L 72 47.02 C 72 47.6 71.88 47.732 71.812 47.801 C 71.744 47.87 71.609 48.02 71 48.02 L 30 48.02 C 29.243 48.02 28.489 48.315 27.937 48.833 L 16 60.088 L 16 51.021 C 16 49.45 14.571 48.02 13 48.02 L 7.062 48.02 C 7.02 48.019 7.038 48.02 7 48.02 C 6.455 47.99 6.252 47.835 6.187 47.77 C 6.118 47.701 6 47.6 6 47.02 L 6 7.003 C 6 6.422 6.119 6.259 6.187 6.19 C 6.255 6.121 6.391 6.003 7 6.003 Z M 55.687 8.004 C 54.116 8.085 52.761 9.589 52.843 11.161 C 52.925 12.733 54.429 14.088 56 14.006 C 59.363 14.006 59.67 14.006 63 14.006 C 63.608 14.006 63.744 14.125 63.812 14.194 C 63.88 14.263 64 14.426 64 15.006 L 64 30.013 C 63.977 31.598 65.414 33.057 67 33.057 C 68.585 33.057 70.022 31.598 70 30.013 L 70 15.006 C 70 13.175 69.371 11.302 68.062 9.973 C 66.753 8.644 64.884 8.003 63 8.004 C 59.722 8.004 57.896 8.004 55.687 8.004 Z M 86.937 18.946 C 85.366 18.978 83.967 20.438 83.999 22.009 L 83.999 59.025 C 84 59.609 83.879 59.708 83.812 59.775 C 83.745 59.842 83.583 60 82.906 60.025 L 76 60.025 C 74.429 60.025 73 61.455 73 63.026 L 73 72.092 L 61.062 60.838 C 60.51 60.32 59.756 60.023 59 60.025 L 33 60.025 C 31.415 60.003 29.957 61.44 29.957 63.026 C 29.957 64.612 31.415 66.05 33 66.027 L 57.843 66.027 L 73.937 81.19 C 74.78 81.988 76.107 82.226 77.175 81.771 C 78.243 81.316 78.991 80.194 79 79.033 L 79 66.027 L 82.999 66.027 C 83.031 66.028 83.062 66.028 83.093 66.027 C 84.922 65.96 86.755 65.304 88.062 63.995 C 89.369 62.687 90 60.85 89.999 59.025 L 89.999 22.009 C 90.033 20.396 88.549 18.912 86.937 18.946 Z"
     >
     </path>
   </svg>
-  <span>{logo(locale, "last")}</span>
+  <span
+    class="text-[#6FA8DC] self-center text-base min-[360px]:text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold whitespace-nowrap"
+  >
+    {logo(l, "last")}
+  </span>
 </a>
-
-<style>
-  a {
-    @apply text-primary-500 flex items-center space-x-0.5 rtl:space-x-reverse;
-    font-family: "Roboto Slab";
-
-    svg {
-      @apply -mb-1 h-4 sm:h-6 md:h-8;
-    }
-
-    span {
-      @apply self-center text-base min-[360px]:text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold whitespace-nowrap;
-    }
-
-    span:last-child {
-      @apply text-[#6FA8DC];
-    }
-  }
-</style>
