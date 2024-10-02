@@ -3,8 +3,8 @@ createdDate: "2024-09-11T17:13:30Z"
 updatedDate: "2024-09-11T17:13:30Z"
 draft: false
 name: "Home"
-title: "Unlocking Global Opportunities Through Language Mastery at the British Language Academy"
-description: "At British Language Academy, we are driven by a passion for empowering individuals and professionals to achieve their language goals. Renowned for our unmatched flexibility, responsive programs, and exceptional teaching methods, we provide a transformative learning experience for learners of all ages. Whether you're aiming to improve your language skills or take internationally recognized exams, we've got you covered."
+title: "Unlocking Global Opportunities Through Language Mastery"
+description: "At British Language Academy, we empower learners of all ages with flexible programs and exceptional teaching. Whether improving language skills or preparing for exams, we’ve got you covered."
 image:
   src: "~/assets/images/students.jpg"
   alt: "students in a class room, one raises his hand"
@@ -16,6 +16,7 @@ import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
 import Button from "~/components/Button.astro"
+import Carousel from "~/components/Carousel.astro"
 import Icon from "~/components/Icon.astro"
 import { Image } from "astro:assets"
 import Section from "~/components/Section.astro"
@@ -25,6 +26,7 @@ import Video from "~/components/Video.astro"
 <Section
   mode="dark"
   align="center"
+  type="grid"
   title={frontmatter.title}
   blurb={frontmatter.description}
   background={students}
@@ -51,6 +53,7 @@ import Video from "~/components/Video.astro"
   >
     BBC News Logo
   </Icon>
+  <Carousel />
 </Section>
 
 <Section title="Achieve Your Language Goals with Global Certifications" blurb="At British Language Academy, we offer an extensive range of internationally recognized language exams, each designed to validate your English proficiency for academic, professional, or personal success.">
