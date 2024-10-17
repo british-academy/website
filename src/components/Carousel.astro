@@ -1,11 +1,114 @@
 ---
 import { Picture } from "astro:assets"
-import { readdirSync } from "node:fs"
+// import { readdirSync } from "node:fs"
 
-const images = readdirSync("src/assets/images/slider").map((img) => ({
-  src: import(`../assets/images/slider/${img}`),
-  caption: `Some text to describe ${img}`,
-}))
+// console.log(JSON.stringify(readdirSync("src/assets/images/slider").map((img) => ({
+//   src: `import('~/assets/images/slider/${img}')`,
+//   caption: "Some text to describe the image",
+// }))))
+
+const images = [
+  {
+    src: import("~/assets/images/slider/10.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/11.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/12.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/13.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/14.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/15.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/16.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/17.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/18.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/19.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/2.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/20.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/21.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/22.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/23.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/24.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/25.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/26.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/3.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/4.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/5.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/6.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/7.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/8.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/9.jpg"),
+    caption: "Some text to describe the image",
+  },
+]
 ---
 
 <div class="relative w-full" data-carousel="slide">
