@@ -2,8 +2,6 @@
 import { Picture } from "astro:assets"
 import { readdirSync } from "node:fs"
 
-console.log(readdirSync("src/assets/images/slider"))
-
 const images = readdirSync("src/assets/images/slider").map((img) => ({
   src: import(`../assets/images/slider/${img}`),
   caption: `Some text to describe ${img}`,
@@ -26,14 +24,6 @@ const images = readdirSync("src/assets/images/slider").map((img) => ({
             <div class="absolute top-0 w-full bg-gray-800/50 text-white p-4 text-center">{image.caption}</div>
           )}
         </div>
-      ))
-    }
-  </div>
-
-  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-    {
-      images.map((image, idx) => (
-        <button type="button" class="w-3 h-3 rounded-full" aria-label={image.caption} data-carousel-slide-to={idx} />
       ))
     }
   </div>
