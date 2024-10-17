@@ -1,28 +1,13 @@
 ---
 import { Picture } from "astro:assets"
+import { readdirSync } from "node:fs"
 
-const images = [
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-    caption: "Some text to describe the image",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-    caption: "Some text to describe the image",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-    caption: "Some text to describe the image",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-    caption: "Some text to describe the image",
-  },
-  {
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-    caption: "Some text to describe the image",
-  },
-]
+console.log(readdirSync("src/assets/images/slider"))
+
+const images = readdirSync("src/assets/images/slider").map((img) => ({
+  src: import(`../assets/images/slider/${img}`),
+  caption: `Some text to describe ${img}`,
+}))
 ---
 
 <div class="relative w-full" data-carousel="slide">

@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: british-academy/website
+  branch: master
 
 media_folder: "src/assets/images"
 public_folder: "/_astro"
