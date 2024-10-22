@@ -25,5 +25,10 @@ const pages = defineCollection({
     }),
 })
 
+const images = defineCollection({
+  type: "content",
+  schema: ({ image }) => getImageSchema({ image }).required(),
+})
+
 export type Image = z.infer<ReturnType<typeof getImageSchema>>
-export const collections = { pages }
+export const collections = { images, pages }
