@@ -14,8 +14,21 @@ type Props = HTMLAttributes<"section"> & {
   align?: "center"
   mode?: "dark" | "light" | "auto"
   type?: "grid"
+  "grid-cols"?: number
 }
-const { align, mode = "auto", type, class: classList, hero, title, tagline, blurb, background, ...attrs } = Astro.props
+const {
+  align,
+  mode = "auto",
+  type,
+  class: classList,
+  hero,
+  title,
+  tagline,
+  blurb,
+  background,
+  "grid-cols": gridCols,
+  ...attrs
+} = Astro.props
 const {
   default: defaultSlot,
   actions: actionsSlot,
@@ -98,6 +111,15 @@ const blurbCls = twMerge([
   mode === "light" && "text-slate-600",
 ])
 
+const gridCls = twMerge([
+  "space-y-8 md:grid md:gap-12 md:space-y-0",
+
+  !gridCols && "md:grid-cols-2 lg:grid-cols-3",
+  gridCols == 2 && "grid-cols-2",
+  gridCols == 3 && "md:grid-cols-2 lg:grid-cols-3",
+  gridCols == 4 && "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+])
+
 const Title = hero ? "h1" : "h2"
 ---
 
@@ -138,7 +160,7 @@ const Title = hero ? "h1" : "h2"
 
     {
       gridSlot && (
-        <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+        <div class={gridCls}>
           <slot name="grid" />
         </div>
       )

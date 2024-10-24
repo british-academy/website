@@ -15,6 +15,7 @@ import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
+import Address from "~/components/Address.astro"
 import Button from "~/components/Button.astro"
 import Carousel from "~/components/Carousel.astro"
 import Icon from "~/components/Icon.astro"
@@ -164,4 +165,43 @@ import Video from "~/components/Video.astro"
     alt="Young and Old are Studying together"
     widths={[240, 360, 480, 720, 1080]}
   />
+</Section>
+
+<Section
+  title="Our Locations"
+  class="bg-slate-100 dark:bg-slate-800"
+  tagline="Your language goals, within reach. Learn English across Morocco."
+  grid-cols="2"
+>
+  <Address title="Casablanca (Centre Ville)" slot="grid">
+    1 Place Rue Du 16 Novembre
+    {""}
+    2ème Étage
+    {""}
+    Centre Ville
+    {""}
+    Casablanca 20320
+  </Address>
+  <Address title="Casablanca (Hay Chrifa)" slot="grid">
+    Rue 1{""}
+    N" 41 El Hamra
+    {""}
+    Hay Chrifa
+    {""}
+    Casablanca 20470
+  </Address>
+  <Address title="Berrechid" slot="grid">
+    Lotissement Sidi Lahcen II
+    {""}
+    N° A19
+    {""}
+    Almandar Aljamil
+    {""}
+    Berrechid 26100
+  </Address>
+  <Address title="El Jadida" slot="grid">
+    Rue Ben Dagha
+    {""}
+    El Jadida 24030
+  </Address>
 </Section>
