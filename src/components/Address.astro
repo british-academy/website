@@ -1,19 +1,23 @@
 ---
 import type { ComponentProps } from "astro/types"
 import SectionItem from "~/components/SectionItem.astro"
+import Button from "~/components/Button.astro"
 
 type Props = ComponentProps<typeof SectionItem> & {
   title: string
+  link: string
   class: string
 }
 
-const { class: classList, title, ...attrs } = Astro.props
+const { class: classList, link, title, ...attrs } = Astro.props
 ---
 
 <SectionItem class={classList} {...attrs}>
-  <h3>{title}</h3>
+  <h3 class="mb-1">{title}</h3>
 
   <address class="not-prose">
     <slot />
   </address>
+
+  <Button type="link" class="mt-2" href={link}>Google Maps</Button>
 </SectionItem>
