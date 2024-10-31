@@ -1,0 +1,177 @@
+---
+import { Picture } from "astro:assets"
+// import { readdirSync } from "node:fs"
+
+// console.log(JSON.stringify(readdirSync("src/assets/images/slider").map((img) => ({
+//   src: `import('~/assets/images/slider/${img}')`,
+//   caption: "Some text to describe the image",
+// }))))
+
+const images = [
+  {
+    src: import("~/assets/images/slider/10.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/11.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/12.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/13.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/14.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/15.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/16.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/17.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/18.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/19.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/2.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/20.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/21.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/22.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/23.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/24.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/25.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/26.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/3.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/4.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/5.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/6.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/7.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/8.jpg"),
+    caption: "Some text to describe the image",
+  },
+  {
+    src: import("~/assets/images/slider/9.jpg"),
+    caption: "Some text to describe the image",
+  },
+]
+---
+
+<div class="relative w-full" data-carousel="slide">
+  <div class="relative h-72 overflow-hidden rounded-lg">
+    {
+      images.map((image) => (
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <Picture
+            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            src={image.src}
+            alt={image.caption}
+            height="640"
+            width="827"
+          />
+          {image.caption && false && (
+            <div class="absolute bottom-0 w-full bg-gray-800/50 text-white p-4 text-center">{image.caption}</div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+
+  <button
+    type="button"
+    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+    data-carousel-prev
+  >
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+    >
+      <svg
+        class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4">
+        </path>
+      </svg>
+      <span class="sr-only">Previous</span>
+    </span>
+  </button>
+
+  <button
+    type="button"
+    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+    data-carousel-next
+  >
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+    >
+      <svg
+        class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4">
+        </path>
+      </svg>
+      <span class="sr-only">Next</span>
+    </span>
+  </button>
+</div>

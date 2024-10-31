@@ -1,0 +1,204 @@
+---
+createdDate: "2024-09-11T17:13:30Z"
+updatedDate: "2024-09-11T17:13:30Z"
+draft: false
+name: "الرئيسية"
+title: "فتح الفرص العالمية من خلال إتقان اللغة"
+description: "نعمل في الأكاديمية البريطانية للغات على تمكين المتعلمين من جميع الأعمار من خلال برامج مرنة وتدريس استثنائي. وسواء كنت ترغب في تحسين مهاراتك اللغوية أو التحضير للامتحانات، فنحن نوفر لك كل ما تحتاجه."
+image:
+  src: "~/assets/images/students.jpg"
+  alt: "students in a class room, one raises his hand"
+---
+
+import students from "~/assets/images/students.jpg"
+import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
+import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
+
+import Address from "~/components/Address.astro"
+import Button from "~/components/Button.astro"
+import Carousel from "~/components/Carousel.astro"
+import Icon from "~/components/Icon.astro"
+import { Image } from "astro:assets"
+import Section from "~/components/Section.astro"
+import SectionItem from "~/components/SectionItem.astro"
+import Video from "~/components/Video.astro"
+
+<Section
+  title={frontmatter.title}
+  blurb={frontmatter.description}
+  type="grid"
+  background={students}
+  mode="dark"
+  align="center">
+  <Button
+    slot="actions"
+    type="link"
+    href="#"
+    icon-class="rtl:rotate-180"
+    icon-right="arrow-right"
+    color="primary"
+    size="base"
+    rounded="lg"
+  >اعرف المزيد</Button>
+  <Button
+    slot="actions"
+    type="link"
+    href="#akadymyh-allghh-albrytanyh-arth-mn-atqan-allghh"
+    icon-class="rtl:rotate-180"
+    icon-left="camera"
+    color="secondary"
+    size="base"
+    rounded="lg"
+  >شاهد الفيديو</Button>
+
+  <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 text-slate-400 hover:text-slate-300">BBC News Logo</Icon>
+  <Carousel />
+</Section>
+
+<Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية" blurb="نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.">
+  <SectionItem slot="grid" icon-name="toefl">
+    ### Test of English as a Foreign Language
+
+    _بوابتك للدراسة في الخارج_
+
+    اختبار TOEFL مثالي للطلاب الراغبين في الدراسة في الجامعات في البلدان الناطقة باللغة الإنجليزية. ويختبر هذا الاختبار قدرتك على الفهم والتواصل الفعال في الأوساط الأكاديمية. ومع حصولك على درجة عالية في اختبار TOEFL، فإن أبواب التعليم العالمي مفتوحة على مصراعيها.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="toeic">
+    ### Test of English for International Communication
+
+    _إتقان اللغة الإنجليزية لمكان العمل_
+
+    صُمم اختبار TOEIC للمحترفين، وهو يقيس قدرتك على التواصل في بيئات العمل. وهو مثالي للباحثين عن النمو الوظيفي أو فرص العمل أو الأدوار الدولية التي تتطلب مهارات تواصل قوية باللغة الإنجليزية.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="ielts">
+    ### International English Language Testing System
+
+    _اختبار لجميع المسارات_
+
+    سواءً كان لأغراض أكاديمية أو لأغراض الهجرة، يعد امتحان ”IELTS“ أحد أكثر الامتحانات المقبولة على نطاق واسع في جميع أنحاء العالم. وتركيزه الواسع يجعله مثالياً لمن يتابعون تعليمهم العالي، أو يعملون في الخارج، أو حتى يهاجرون إلى البلدان الناطقة باللغة الإنجليزية.
+
+  </SectionItem>
+</Section>
+
+<Section
+  class="bg-slate-100 dark:bg-slate-800"
+  type="grid"
+  title="معتمدة من جامعة كامبريدج"
+  tagline="وضع معيار التميز في تعليم اللغات"
+  blurb="تفخر أكاديمية اللغة البريطانية بكونها معتمدة من جامعة كامبريدج المرموقة. فشهاداتنا معترف بها دولياً، مما يضمن تميز مؤهلاتك أينما ذهبت. ولا يعكس اعتماد كامبريدج المعايير العالية لبرامجنا فحسب، بل يضمن أيضاً حصول دارسينا على تعليم عالمي المستوى يتماشى مع التوقعات العالمية."
+>
+  <Image
+    slot="items"
+    class="w-full rounded-lg"
+    src={cambridge}
+    alt="صورة لكلية كينجز كامبريدج كينغز كوليدج"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="أكاديمية اللغة البريطانية: إرث من إتقان اللغة"
+  blurb="في هذا التقرير الذي يستغرق 4 دقائق من أخبار البي بي سي من عام 2013، يستكشف هذا التقرير الذي يستغرق 4 دقائق صعود أكاديمية اللغة البريطانية إلى الصدارة كمؤسسة لغوية موثوقة. مع ما يقرب من عقد من الزمن من التفاني في مساعدة المتعلمين على التفوق، لا تزال الأكاديمية رائدة في تقديم تعليم عالمي المستوى وشهادات معترف بها عالميًا. تعرّف كيف ساهمت أساليب المدرسة المبتكرة وبرامجها القابلة للتكيف ومصداقيتها الدولية في تشكيل تأثيرها الدائم على الطلاب والمهنيين في جميع أنحاء العالم."
+>
+  <Video src={bbcNews} controls />
+</Section>
+
+<Section
+  class="bg-slate-100 dark:bg-slate-800"
+  title="لماذا أكاديمية اللغة البريطانية هي خيارك الأفضل"
+  tagline="حيث يلتقي تعلم اللغة مع النجاح"
+>
+  <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### جودة تدريس استثنائية
+
+    يقدم مدرسونا ذوو الخبرة والمؤهلات العالية دروساً مخصصة تلبي احتياجاتك التعليمية الفريدة، مما يضمن حصولك على أفضل توجيه ممكن.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="clipboard-check" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### برامج فعالة ومصممة خصيصًا
+    
+    نقدم مجموعة كبيرة ومتنوعة من الدورات والبرامج، كل منها مصمم بعناية لتلبية احتياجات المتعلمين من جميع الأعمار - من الأطفال إلى البالغين والمهنيين.
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="award" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### المؤهلات المعتمدة
+    
+    احصل على شهادات معترف بها عالميًا ستساعدك على التميز، سواء كنت تهدف إلى تحقيق إنجازات أكاديمية أو مهنية أو شخصية.
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="briefcase" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### المشورة المهنية والتوجيه المهني
+
+    يقدم لك مستشارونا المتمرسون إرشادات الخبراء حول كيفية استخدام مهاراتك اللغوية للتقدم الوظيفي أو لمواصلة الدراسة أو للحصول على فرص دولية.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="heart" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### الدعم المخصص والمتابعة الفعالة
+
+    نحن ملتزمون بنجاحك. ولهذا السبب نقدم لك الدعم المستمر وتتبع التقدم المحرز والملاحظات الشخصية، مما يضمن لك أن تكون دائماً على الطريق الصحيح.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="face-grin" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### أجواء ودية وشاملة
+
+    نحن نؤمن بتعزيز بيئة تعليمية إيجابية وداعمة. ستجد في الأكاديمية البريطانية للغات أجواءً دافئة وترحيبية تحفزك على النجاح.
+
+  </SectionItem>
+</Section>
+
+<Section
+  type="grid"
+  title="دورات مرنة للجميع"
+  tagline="مصممة للأطفال والمراهقين والبالغين والمحترفين"
+  blurb="بغض النظر عن عمرك أو أهدافك، تقدم أكاديمية اللغة البريطانية مجموعة كبيرة من البرامج المصممة خصيصاً لتلبية احتياجاتك الخاصة. بدءاً من المهارات اللغوية التأسيسية للأطفال إلى التواصل المتقدم في مجال الأعمال للمحترفين، فنحن نوفر المسار التعليمي المناسب للجميع."
+>
+  <Image
+    slot="items"
+    class="w-full rounded-lg order-first"
+    src={youngAndOld}
+    alt="الصغار والكبار يدرسون معًا"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="مواقعنا"
+  class="bg-slate-100 dark:bg-slate-800"
+  tagline="أهدافك اللغوية، في متناول اليد. تعلّم الإنجليزية في جميع أنحاء المغرب."
+  grid-cols="2"
+>
+  <Address title="Casablanca (Centre Ville)" slot="grid" link="https://maps.app.goo.gl/XHUhWx4foWjhg81q8">
+    1, Place 16 Novembre
+    {""}
+    Prince Moulay Abdallah
+    {""}
+    Centre-ville
+    {""}
+    Casablanca 20320
+  </Address>
+  <Address title="Casablanca (Hay Chrifa)" slot="grid" link="https://maps.app.goo.gl/ewDeLDsXQq8E5GYy9">
+    Rue 1{""}
+    N" 41 El Hamra
+    {""}
+    Hay Chrifa
+    {""}
+    Casablanca 20470
+  </Address>
+  <Address title="Berrechid" slot="grid" link="https://maps.app.goo.gl/jsRzWTyNu9vUEoKM6">
+    Lotissement Sidi Lahcen II
+    {""}
+    N° A19
+    {""}
+    Almandar Aljamil
+    {""}
+    Berrechid 26100
+  </Address>
+  <Address title="El Jadida" slot="grid" link="https://maps.app.goo.gl/FqFJBoLMi3y1qxKa9">
+    Rue Ben Dagha
+    {""}
+    El Jadida 24030
+  </Address>
+</Section>

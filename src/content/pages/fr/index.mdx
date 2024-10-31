@@ -1,0 +1,207 @@
+---
+createdDate: "2024-09-11T17:13:30Z"
+updatedDate: "2024-09-11T17:13:30Z"
+draft: false
+name: "Accueil"
+title: "Débloquer des Opportunités Mondiales Grâce à la Maîtrise des Langues"
+description: "À la British Language Academy, nous donnons aux apprenants de tous âges les moyens de s'épanouir grâce à des programmes flexibles et à un enseignement exceptionnel. Qu'il s'agisse d'améliorer ses compétences linguistiques ou de se préparer à des examens, nous avons tout ce qu'il faut pour vous."
+image:
+  src: "~/assets/images/students.jpg"
+  alt: "students in a class room, one raises his hand"
+---
+
+import students from "~/assets/images/students.jpg"
+import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
+import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
+
+import Address from "~/components/Address.astro"
+import Button from "~/components/Button.astro"
+import Carousel from "~/components/Carousel.astro"
+import Icon from "~/components/Icon.astro"
+import { Image } from "astro:assets"
+import Section from "~/components/Section.astro"
+import SectionItem from "~/components/SectionItem.astro"
+import Video from "~/components/Video.astro"
+
+<Section
+  mode="dark"
+  align="center"
+  type="grid"
+  title={frontmatter.title}
+  blurb={frontmatter.description}
+  background={students}
+  hero
+>
+  <Button slot="actions" type="link" href="#" icon-right="arrow-right" color="primary" size="base" rounded="lg">
+    En savoir plus
+  </Button>
+  <Button
+    slot="actions"
+    type="link"
+    href="#british-language-academy-a-legacy-of-language-mastery"
+    icon-left="camera"
+    color="secondary"
+    size="base"
+    rounded="lg"
+  >
+    Voir la vidéo
+  </Button>
+  <Icon
+    slot="featured"
+    name="bbc-news"
+    class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 text-slate-400 hover:text-slate-300"
+  >
+    Logo de BBC News
+  </Icon>
+  <Carousel />
+</Section>
+
+<Section title="Atteignez vos Objectifs Linguistiques Grâce aux Certifications Mondiales" blurb="À la British Language Academy, nous proposons une large gamme d'examens de langue reconnus internationalement, chacun conçu pour valider votre maîtrise de l'anglais en vue d'une réussite académique, professionnelle ou personnelle.">
+  <SectionItem slot="grid" icon-name="toefl" icon-color="secondary">
+    ### Test of English as a Foreign Language
+
+    _Votre portail pour étudier à l'étranger_
+
+    Le TOEFL est idéal pour les étudiants qui souhaitent étudier dans des universités de pays anglophones. Cet examen teste votre capacité à comprendre et à communiquer efficacement dans un contexte académique. Avec un score élevé au TOEFL, les portes de l'enseignement international sont grandes ouvertes.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="toeic" icon-color="secondary">
+    ### Test of English for International Communication
+
+    _Maîtriser l'anglais sur le lieu de travail_
+
+    Conçu pour les professionnels, le TOEIC mesure votre capacité à communiquer dans un environnement professionnel. Il est parfait pour ceux qui cherchent à progresser dans leur carrière, à obtenir un emploi ou à occuper un poste international exigeant de solides compétences en communication en anglais.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="ielts" icon-color="secondary">
+    ### International English Language Testing System
+
+    _Un test pour toutes les voies_
+
+    Que ce soit à des fins académiques ou d'immigration, l'IELTS est l'un des examens les plus largement acceptés dans le monde. Il est idéal pour les personnes qui poursuivent des études supérieures, qui travaillent à l'étranger ou qui émigrent dans des pays anglophones.
+
+  </SectionItem>
+</Section>
+
+<Section
+  class="bg-slate-100 dark:bg-slate-800"
+  type="grid"
+  title="Accrédité par l'Université de Cambridge"
+  tagline="Établir la norme d'excellence en matière d'enseignement des langues"
+  blurb="La British Language Academy est fière d'être accréditée par la prestigieuse Université de Cambridge. Nos diplômes sont reconnus à l'échelle internationale, ce qui garantit que vos qualifications se distinguent où que vous alliez. L'approbation de Cambridge reflète non seulement les normes élevées de nos programmes, mais garantit également que nos apprenants reçoivent une éducation de classe mondiale, alignée sur les attentes mondiales."
+>
+  <Image
+    slot="items"
+    class="w-full rounded-lg"
+    src={cambridge}
+    alt="Une photo du Kings College de Cambridge"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="Académie britannique des langues : Un héritage de maîtrise des langues"
+  blurb="Dans ce reportage de 4 minutes de BBC News datant de 2013, l'ascension de la British Language Academy en tant qu'institution linguistique de confiance est explorée. Avec près d'une décennie de dévouement pour aider les apprenants à exceller, l'Académie reste un leader dans la fourniture d'un enseignement de classe mondiale et de certifications reconnues dans le monde entier. Découvrez comment les méthodes innovantes, les programmes adaptables et la crédibilité internationale de l'école ont façonné son impact durable sur les étudiants et les professionnels du monde entier."
+>
+  <Video src={bbcNews} controls />
+</Section>
+
+<Section 
+  class="bg-slate-100 dark:bg-slate-800"
+  title="Pourquoi la British Language Academy est votre meilleur choix"
+  tagline="Quand l'apprentissage des langues rencontre le succès">
+  <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Une qualité d'enseignement exceptionnelle
+
+    Nos instructeurs expérimentés et hautement qualifiés dispensent des leçons personnalisées qui répondent à vos besoins d'apprentissage uniques, garantissant ainsi que vous recevrez les meilleurs conseils possibles.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="clipboard-check" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Des programmes efficaces et adaptés
+
+    Nous proposons une grande variété de cours et de programmes, tous soigneusement conçus pour répondre aux besoins des apprenants de tous âges, des enfants aux adultes et aux professionnels.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="award" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Qualifications accréditées
+
+    Obtenez des diplômes mondialement reconnus qui vous aideront à vous démarquer, que vous visiez des objectifs académiques, professionnels ou personnels.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="briefcase" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Conseils professionnels et orientation de carrière
+
+    Nos conseillers expérimentés fournissent des conseils avisés sur la manière d'utiliser vos compétences linguistiques pour progresser dans votre carrière, poursuivre vos études ou profiter d'opportunités internationales.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="heart" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Soutien personnalisé et suivi actif
+
+    Nous nous engageons à assurer votre réussite. C'est pourquoi nous vous offrons un soutien continu, un suivi des progrès et un retour d'information personnalisé, afin que vous soyez toujours sur la bonne voie.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="face-grin" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Atmosphère conviviale et inclusive
+
+    Nous croyons en un environnement d'apprentissage positif et encourageant. À la British Language Academy, vous trouverez une atmosphère chaleureuse et accueillante qui vous motivera à réussir.
+
+  </SectionItem>
+</Section>
+
+<Section
+  type="grid"
+  title="Des cours flexibles pour tous"
+  tagline="Conçu pour les enfants, les adolescents, les adultes et les professionnels"
+  blurb="Quel que soit votre âge ou vos objectifs, British Language Academy propose une large gamme de programmes adaptés à vos besoins spécifiques. Des compétences linguistiques fondamentales pour les enfants à la communication d'affaires avancée pour les professionnels, nous proposons un parcours d'apprentissage adapté à chacun."
+>
+  <Image
+    slot="items"
+    class="w-full order-first rounded-lg"
+    src={youngAndOld}
+    alt="Jeunes et vieux étudient ensemble"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="Nos sites"
+  class="bg-slate-100 dark:bg-slate-800"
+  tagline="Vos objectifs linguistiques à portée de main. Apprenez l'anglais au Maroc."
+  grid-cols="2"
+>
+  <Address title="Casablanca (Centre Ville)" slot="grid" link="https://maps.app.goo.gl/XHUhWx4foWjhg81q8">
+    1, Place 16 Novembre
+    {""}
+    Prince Moulay Abdallah
+    {""}
+    Centre-ville
+    {""}
+    Casablanca 20320
+  </Address>
+  <Address title="Casablanca (Hay Chrifa)" slot="grid" link="https://maps.app.goo.gl/ewDeLDsXQq8E5GYy9">
+    Rue 1{""}
+    N" 41 El Hamra
+    {""}
+    Hay Chrifa
+    {""}
+    Casablanca 20470
+  </Address>
+  <Address title="Berrechid" slot="grid" link="https://maps.app.goo.gl/jsRzWTyNu9vUEoKM6">
+    Lotissement Sidi Lahcen II
+    {""}
+    N° A19
+    {""}
+    Almandar Aljamil
+    {""}
+    Berrechid 26100
+  </Address>
+  <Address title="El Jadida" slot="grid" link="https://maps.app.goo.gl/FqFJBoLMi3y1qxKa9">
+    Rue Ben Dagha
+    {""}
+    El Jadida 24030
+  </Address>
+</Section>

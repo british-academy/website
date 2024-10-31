@@ -1,0 +1,187 @@
+---
+import { type HTMLAttributes } from "astro/types"
+import { t, defaultLocale } from "~/utils/i18n"
+import { slugify } from "~/utils/format"
+import { Image } from "astro:assets"
+import { twMerge } from "tailwind-merge"
+
+type Props = HTMLAttributes<"section"> & {
+  title: string
+  tagline?: string
+  blurb?: string
+  hero?: boolean
+  background?: string | ImageMetadata
+  align?: "center"
+  mode?: "dark" | "light" | "auto"
+  type?: "grid"
+  "grid-cols"?: number
+}
+const {
+  align,
+  mode = "auto",
+  type,
+  class: classList,
+  hero,
+  title,
+  tagline,
+  blurb,
+  background,
+  "grid-cols": gridCols,
+  ...attrs
+} = Astro.props
+const {
+  default: defaultSlot,
+  actions: actionsSlot,
+  featured: featuredSlot,
+  grid: gridSlot,
+  items: itemsSlot,
+} = Astro.slots
+const l = Astro.currentLocale || defaultLocale
+
+// if we have image metadata as background we add that
+const sectionCls = twMerge([
+  mode === "auto" && "bg-white dark:bg-slate-900",
+  mode === "dark" && "bg-slate-900",
+  mode === "light" && "bg-white",
+
+  background && typeof background !== "string" && "relative bg-gray-700 overflow-hidden",
+
+  classList,
+])
+
+const divCls = twMerge([
+  "py-8 px-4 lg:py-16 mx-auto max-w-screen-xl",
+  type === "grid" && "gap-8 items-center xl:gap-16 md:grid md:grid-cols-2",
+
+  background && typeof background !== "string" && "relative z-10",
+
+  mode === "auto" && "text-slate-500 dark:text-slate-400",
+  mode === "dark" && "text-slate-400",
+  mode === "light" && "text-slate-500",
+])
+
+const introDivCls = twMerge([
+  type === "grid" && "mt-4 md:mt-0",
+  type !== "grid" && "max-w-screen-lg mb-8 lg:mb-16 sm:text-xl",
+
+  mode === "auto" && "text-slate-500 dark:text-slate-400",
+  mode === "dark" && "text-slate-400",
+  mode === "light" && "text-slate-500",
+
+  align === "center" && "text-center mx-auto",
+])
+
+const titleCls = twMerge([
+  "mb-4 text-xl font-extrabold tracking-tight leading-none md:text-2xl lg:text-3xl",
+
+  mode === "auto" && "text-slate-900 dark:text-white",
+  mode === "dark" && "text-white",
+  mode === "light" && "text-slate-900",
+])
+
+const featuredHeaderCls = twMerge([
+  "font-semibold uppercase",
+
+  mode === "auto" && "text-slate-200 dark:text-slate-800",
+  mode === "dark" && "text-slate-200",
+  mode === "light" && "text-slate-800",
+])
+
+const featuredBodyCls = twMerge([
+  "flex flex-wrap justify-center items-center mt-8",
+
+  mode === "auto" && "text-slate-400 dark:text-slate-600",
+  mode === "dark" && "text-slate-600",
+  mode === "light" && "text-slate-400",
+])
+
+const taglineCls = twMerge([
+  "mb-4 text-xl italic",
+
+  mode === "auto" && "text-slate-700 dark:text-slate-200",
+  mode === "dark" && "text-slate-200",
+  mode === "light" && "text-slate-700",
+])
+
+const blurbCls = twMerge([
+  "mb-6 font-light md:text-lg",
+
+  mode === "auto" && "text-slate-600 dark:text-slate-300",
+  mode === "dark" && "text-slate-300",
+  mode === "light" && "text-slate-600",
+])
+
+const gridCls = twMerge([
+  "space-y-8 md:grid md:gap-12 md:space-y-0",
+
+  !gridCols && "md:grid-cols-2 lg:grid-cols-3",
+  gridCols == 2 && "grid-cols-2",
+  gridCols == 3 && "md:grid-cols-2 lg:grid-cols-3",
+  gridCols == 4 && "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+])
+
+const Title = hero ? "h1" : "h2"
+---
+
+<section class={sectionCls} {...attrs}>
+  <div class={divCls}>
+    <div class={introDivCls}>
+      {
+        title && (
+          <Title id={slugify(title)} class={titleCls}>
+            {title}
+          </Title>
+        )
+      }
+      {tagline && <p class={taglineCls}>{tagline}</p>}
+      {blurb && <p class={blurbCls}>{blurb}</p>}
+
+      {
+        actionsSlot && (
+          <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+            <slot name="actions" />
+          </div>
+        )
+      }
+
+      {
+        featuredSlot && (
+          <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+            <span class={featuredHeaderCls}>{t(l, "hero.featured_on")}</span>
+            <div class={featuredBodyCls}>
+              <slot name="featured" />
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    {defaultSlot && <slot />}
+
+    {
+      gridSlot && (
+        <div class={gridCls}>
+          <slot name="grid" />
+        </div>
+      )
+    }
+
+    {itemsSlot && <slot name="items" />}
+  </div>
+  {
+    background && typeof background !== "string" && (
+      <Image
+        class="absolute object-cover top-0 left-0 w-full h-full mix-blend-multiply"
+        src={background}
+        alt=""
+        widths={[240, 360, 480, 720, 1080]}
+      />
+    )
+  }
+</section>
+
+<style>
+  section :global(.blurb > p) {
+    @apply mb-4 last:mb-8 text-lg lg:text-xl font-normal;
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+createdDate: "2024-09-11T17:13:30Z"
+updatedDate: "2024-09-11T17:13:30Z"
+draft: false
+name: "Home"
+title: "Unlocking Global Opportunities Through Language Mastery"
+description: "At British Language Academy, we empower learners of all ages with flexible programs and exceptional teaching. Whether improving language skills or preparing for exams, we’ve got you covered."
+image:
+  src: "~/assets/images/students.jpg"
+  alt: "students in a class room, one raises his hand"
+---
+
+import students from "~/assets/images/students.jpg"
+import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
+import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
+
+import Address from "~/components/Address.astro"
+import Button from "~/components/Button.astro"
+import Carousel from "~/components/Carousel.astro"
+import Icon from "~/components/Icon.astro"
+import { Image } from "astro:assets"
+import Section from "~/components/Section.astro"
+import SectionItem from "~/components/SectionItem.astro"
+import Video from "~/components/Video.astro"
+
+<Section
+  mode="dark"
+  align="center"
+  type="grid"
+  title={frontmatter.title}
+  blurb={frontmatter.description}
+  background={students}
+  hero
+>
+  <Button slot="actions" type="link" href="#" icon-right="arrow-right" color="primary" size="base" rounded="lg">
+    Learn more
+  </Button>
+  <Button
+    slot="actions"
+    type="link"
+    href="#british-language-academy-a-legacy-of-language-mastery"
+    icon-left="camera"
+    color="secondary"
+    size="base"
+    rounded="lg"
+  >
+    Watch video
+  </Button>
+  <Icon
+    slot="featured"
+    name="bbc-news"
+    class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 text-slate-400 hover:text-slate-300"
+  >
+    BBC News Logo
+  </Icon>
+  <Carousel />
+</Section>
+
+<Section title="Achieve Your Language Goals with Global Certifications" blurb="At British Language Academy, we offer an extensive range of internationally recognized language exams, each designed to validate your English proficiency for academic, professional, or personal success.">
+  <SectionItem slot="grid" icon-name="toefl" icon-color="secondary">
+    ### Test of English as a Foreign Language
+
+    _Your Gateway to Studying Abroad_
+
+    TOEFL is ideal for students aiming to study at universities in English-speaking countries. This exam tests your ability to understand and communicate effectively in academic settings. With a high TOEFL score, doors to global education are wide open.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="toeic" icon-color="secondary">
+    ### Test of English for International Communication
+
+    _Master English for the Workplace_
+
+    Designed for professionals, TOEIC measures your ability to communicate in business environments. It’s perfect for those seeking career growth, job opportunities, or international roles that require strong English communication skills.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="ielts" icon-color="secondary">
+    ### International English Language Testing System
+
+    _A Test for All Paths_
+
+    Whether for academic or immigration purposes, IELTS is one of the most widely accepted exams worldwide. Its broad focus makes it ideal for those pursuing higher education, working abroad, or even migrating to English-speaking countries.
+
+  </SectionItem>
+</Section>
+
+<Section
+  class="bg-slate-100 dark:bg-slate-800"
+  type="grid"
+  title="Accredited by the University of Cambridge"
+  tagline="Setting the Standard for Excellence in Language Education"
+  blurb="British Language Academy takes pride in being accredited by the prestigious University of Cambridge. Our diplomas are recognized internationally, ensuring that your qualifications stand out wherever you go. Cambridge's endorsement not only reflects the high standards of our programs but also guarantees that our learners receive world-class education, aligned with global expectations."
+>
+  <Image
+    slot="items"
+    class="w-full rounded-lg"
+    src={cambridge}
+    alt="A photo of Kings College Cambridge"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="British Language Academy: A Legacy of Language Mastery"
+  blurb="In this 4-minute BBC News feature from 2013, British Language Academy's rise to prominence as a trusted language institution is explored. With nearly a decade of dedication to helping learners excel, the Academy remains a leader in delivering world-class education and globally recognized certifications. Learn how the school's innovative methods, adaptable programs, and international credibility have shaped its lasting impact on students and professionals worldwide."
+>
+  <Video src={bbcNews} controls />
+</Section>
+
+<Section 
+  class="bg-slate-100 dark:bg-slate-800"
+  title="Why British Language Academy is Your Best Choice"
+  tagline="Where Language Learning Meets Success">
+  <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Exceptional Teaching Quality
+
+    Our experienced, highly qualified instructors deliver personalized lessons that cater to your unique learning needs, ensuring that you receive the best possible guidance.
+
+  </SectionItem>
+
+  <SectionItem slot="grid" icon-name="clipboard-check" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Effective, Tailored Programs
+
+    We offer a wide variety of courses and programs, each carefully designed to meet the needs of learners of all ages—from children to adults and professionals.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="award" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Accredited Qualifications
+
+    Gain globally recognized diplomas that will help you stand out, whether you’re aiming for academic, professional, or personal milestones.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="briefcase" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Professional Advice & Career Guidance
+
+    Our experienced advisors provide expert guidance on how to use your language skills for career advancement, further studies, or international opportunities.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="heart" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Personalized Support & Active Follow-Up
+
+    We’re committed to your success. That’s why we offer ongoing support, progress tracking, and personalized feedback, ensuring you’re always on the right path.
+
+  </SectionItem>
+  <SectionItem slot="grid" icon-name="face-grin" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
+    ### Friendly, Inclusive Atmosphere
+
+    We believe in fostering a positive and supportive learning environment. At British Language Academy, you’ll find a warm, welcoming atmosphere that motivates you to succeed.
+
+  </SectionItem>
+</Section>
+
+<Section
+  type="grid"
+  title="Flexible Courses for Everyone"
+  tagline="Designed for Children, Teens, Adults, and Professionals"
+  blurb="No matter your age or goals, British Language Academy offers a wide range of programs tailored to meet your specific needs. From foundational language skills for children to advanced business communication for professionals, we provide the right learning path for everyone."
+>
+  <Image
+    slot="items"
+    class="w-full order-first rounded-lg"
+    src={youngAndOld}
+    alt="Young and Old are Studying together"
+    widths={[240, 360, 480, 720, 1080]}
+  />
+</Section>
+
+<Section
+  title="Our Locations"
+  class="bg-slate-100 dark:bg-slate-800"
+  tagline="Your language goals, within reach. Learn English across Morocco."
+  grid-cols="2"
+>
+  <Address title="Casablanca (Centre Ville)" slot="grid" link="https://maps.app.goo.gl/XHUhWx4foWjhg81q8">
+    1, Place 16 Novembre
+    {""}
+    Prince Moulay Abdallah
+    {""}
+    Centre-ville
+    {""}
+    Casablanca 20320
+  </Address>
+  <Address title="Casablanca (Hay Chrifa)" slot="grid" link="https://maps.app.goo.gl/ewDeLDsXQq8E5GYy9">
+    Rue 1{""}
+    N" 41 El Hamra
+    {""}
+    Hay Chrifa
+    {""}
+    Casablanca 20470
+  </Address>
+  <Address title="Berrechid" slot="grid" link="https://maps.app.goo.gl/jsRzWTyNu9vUEoKM6">
+    Lotissement Sidi Lahcen II
+    {""}
+    N° A19
+    {""}
+    Almandar Aljamil
+    {""}
+    Berrechid 26100
+  </Address>
+  <Address title="El Jadida" slot="grid" link="https://maps.app.goo.gl/FqFJBoLMi3y1qxKa9">
+    Rue Ben Dagha
+    {""}
+    El Jadida 24030
+  </Address>
+</Section>

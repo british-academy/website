@@ -1,0 +1,17 @@
+---
+import Button from "~/components/Button.astro"
+export type Props = { href: string; current?: boolean }
+const { href, current = false } = Astro.props
+
+const cls = [
+  "block py-2 px-3 rounded md:p-0",
+  current &&
+    "text-white bg-secondary-700 md:bg-transparent md:text-secondary-700 md:dark:text-secondary-500 dark:bg-secondary-600 md:dark:bg-transparent",
+  !current &&
+    "text-slate-900 hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary-700 dark:text-white md:dark:hover:text-secondary-500 dark:hover:bg-slate-700 dark:hover:text-white md:dark:hover:bg-transparent",
+]
+---
+
+<Button {href} type="link" aria-current={current ? "page" : undefined} class:list={cls}>
+  <slot />
+</Button>

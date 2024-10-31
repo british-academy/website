@@ -1,0 +1,16 @@
+---
+import { extname } from "node:path"
+import * as mime from "mime-types"
+import { t } from "~/utils/i18n"
+import type { HTMLAttributes } from "astro/types"
+interface Props extends HTMLAttributes<"video"> {
+  src: string
+}
+const { src, class: classList, ...attrs } = Astro.props
+const type = mime.lookup(extname(src)) || undefined
+---
+
+<video class:list={["w-full h-auto max-w-full", classList]} {...attrs} transition:persist>
+  <source src={src} type={type} />
+  {t(Astro.currentLocale, "video.unsupported")}
+</video>
