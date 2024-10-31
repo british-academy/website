@@ -15,6 +15,7 @@ import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
+import Address from "~/components/Address.astro"
 import Button from "~/components/Button.astro"
 import Carousel from "~/components/Carousel.astro"
 import Icon from "~/components/Icon.astro"
@@ -161,4 +162,43 @@ import Video from "~/components/Video.astro"
     alt="الصغار والكبار يدرسون معًا"
     widths={[240, 360, 480, 720, 1080]}
   />
+</Section>
+
+<Section
+  title="مواقعنا"
+  class="bg-slate-100 dark:bg-slate-800"
+  tagline="أهدافك اللغوية، في متناول اليد. تعلّم الإنجليزية في جميع أنحاء المغرب."
+  grid-cols="2"
+>
+  <Address title="Casablanca (Centre Ville)" slot="grid" link="https://maps.app.goo.gl/XHUhWx4foWjhg81q8">
+    1, Place 16 Novembre
+    {""}
+    Prince Moulay Abdallah
+    {""}
+    Centre-ville
+    {""}
+    Casablanca 20320
+  </Address>
+  <Address title="Casablanca (Hay Chrifa)" slot="grid" link="https://maps.app.goo.gl/ewDeLDsXQq8E5GYy9">
+    Rue 1{""}
+    N" 41 El Hamra
+    {""}
+    Hay Chrifa
+    {""}
+    Casablanca 20470
+  </Address>
+  <Address title="Berrechid" slot="grid" link="https://maps.app.goo.gl/jsRzWTyNu9vUEoKM6">
+    Lotissement Sidi Lahcen II
+    {""}
+    N° A19
+    {""}
+    Almandar Aljamil
+    {""}
+    Berrechid 26100
+  </Address>
+  <Address title="El Jadida" slot="grid" link="https://maps.app.goo.gl/FqFJBoLMi3y1qxKa9">
+    Rue Ben Dagha
+    {""}
+    El Jadida 24030
+  </Address>
 </Section>
