@@ -3,8 +3,8 @@ createdDate: "2024-09-11T17:13:30Z"
 updatedDate: "2024-09-11T17:13:30Z"
 draft: false
 name: "الرئيسية"
-title: "إتاحة الفرص العالمية من خلال إتقان اللغة في أكاديمية اللغة البريطانية"
-description: "في الأكاديمية البريطانية للغات، يدفعنا شغفنا لتمكين الأفراد والمهنيين من تحقيق أهدافهم اللغوية. ونشتهر بمرونتنا التي لا مثيل لها، وبرامجنا سريعة الاستجابة، وأساليبنا التعليمية الاستثنائية، ونوفر تجربة تعليمية تحويلية للمتعلمين من جميع الأعمار. وسواء كنت تهدف إلى تحسين مهاراتك اللغوية أو التقدم لامتحانات معترف بها دولياً، فنحن نوفر لك كل ما تحتاج إليه."
+title: "فتح الفرص العالمية من خلال إتقان اللغة"
+description: "نعمل في الأكاديمية البريطانية للغات على تمكين المتعلمين من جميع الأعمار من خلال برامج مرنة وتدريس استثنائي. وسواء كنت ترغب في تحسين مهاراتك اللغوية أو التحضير للامتحانات، فنحن نوفر لك كل ما تحتاجه."
 image:
   src: "~/assets/images/students.jpg"
   alt: "students in a class room, one raises his hand"
@@ -16,6 +16,7 @@ import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
 import Button from "~/components/Button.astro"
+import Carousel from "~/components/Carousel.astro"
 import Icon from "~/components/Icon.astro"
 import { Image } from "astro:assets"
 import Section from "~/components/Section.astro"
@@ -25,6 +26,7 @@ import Video from "~/components/Video.astro"
 <Section
   title={frontmatter.title}
   blurb={frontmatter.description}
+  type="grid"
   background={students}
   mode="dark"
   align="center">
@@ -50,6 +52,7 @@ import Video from "~/components/Video.astro"
   >شاهد الفيديو</Button>
 
   <Icon slot="featured" name="bbc-news" class="h-12 mr-5 rtl:ml-5 last:mr-0 last:rtl:ml-0 mb-5 lg:mb-0 text-slate-400 hover:text-slate-300">BBC News Logo</Icon>
+  <Carousel />
 </Section>
 
 <Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية" blurb="نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.">
