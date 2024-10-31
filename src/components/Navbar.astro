@@ -24,36 +24,36 @@ const menu = buildMenu(l, Astro.url.pathname, pages)
       <Language />
       <ThemeToggle />
 
-      <Button
-        type="button"
-        class="p-2 w-10 h-10 focus:ring-2 text-sm md:hidden text-slate-500 hover:bg-slate-100 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
-        rounded="lg"
-        icon-class="w-5 h-5 ms-0"
-        icon-right="hamburger"
-        data-collapse-toggle="navbar-default"
-        aria-controls="navbar-default"
-        aria-expanded="false"
-      >
-        <span class="sr-only">{t(Astro.currentLocale, "navbar.toggle.sr_only")}</span>
-      </Button>
+      <!-- <Button -->
+      <!--   type="button" -->
+      <!--   class="p-2 w-10 h-10 focus:ring-2 text-sm md:hidden text-slate-500 hover:bg-slate-100 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600" -->
+      <!--   rounded="lg" -->
+      <!--   icon-class="w-5 h-5 ms-0" -->
+      <!--   icon-right="hamburger" -->
+      <!--   data-collapse-toggle="navbar-default" -->
+      <!--   aria-controls="navbar-default" -->
+      <!--   aria-expanded="false" -->
+      <!-- > -->
+      <!--   <span class="sr-only">{t(Astro.currentLocale, "navbar.toggle.sr_only")}</span> -->
+      <!-- </Button> -->
     </div>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700"
-      >
-        <li>
-          <MenuButton href={menu.slug} current={menu.isCurrent}>{menu.name}</MenuButton>
-        </li>
-        {
-          menu.children.map((child: Node) => (
-            <li>
-              <MenuButton href={child.slug} current={child.isCurrent}>
-                {child.name}
-              </MenuButton>
-            </li>
-          ))
-        }
-      </ul>
+      <!-- <ul -->
+      <!--   class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700" -->
+      <!-- > -->
+      <!--   <li> -->
+      <!--     <MenuButton href={menu.slug} current={menu.isCurrent}>{menu.name}</MenuButton> -->
+      <!--   </li> -->
+      <!--   { -->
+      <!--     menu.children.map((child: Node) => ( -->
+      <!--       <li> -->
+      <!--         <MenuButton href={child.slug} current={child.isCurrent}> -->
+      <!--           {child.name} -->
+      <!--         </MenuButton> -->
+      <!--       </li> -->
+      <!--     )) -->
+      <!--   } -->
+      <!-- </ul> -->
     </div>
   </div>
 </nav>
