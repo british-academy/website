@@ -1,5 +1,6 @@
 {
   dotenv.enable = true;
+
   languages.javascript.enable = true;
   languages.javascript.bun.enable = true;
 
@@ -8,31 +9,33 @@
       enable = true;
       entry = "astro check";
       files = "\.(ts|astro)$";
+      name = "astro check";
     };
     
-    # TODO: re-enable eslint when configuration is fixed
-    # eslint = {
-    #   enable = true;
-    #   entry = "eslint";
-    #   files = "\.(ts|astro)$";
-    # };
+    eslint = {
+      enable = false;
+      entry = "bun run eslint";
+      files = "\.(ts|astro)$";
+      name = "eslint";
+    };
 
     prettier = {
       enable = true;
-      entry = "prettier --write";
+      entry = "prettier --ignore-unknown --write";
       files = ".*";
     };
   };
 
-  scripts.astro.exec = "bunx astro $@";
-  scripts.eslint.exec = "bunx eslint --flag unstable_ts_config $@";
-  scripts.prettier.exec = "bunx prettier --ignore-unknown $@";
-  scripts.deploy.exec = ''
-    bun install && bun run build
-    bunx wrangler pages deploy dist/ \
-      --project-name="$CLOUDFLARE_PROJECT" \
-      --commit-hash=$(git rev-parse --short "$GITHUB_SHA") \
-      --commit-message="$(git log --format=%B -n 1 "$GITHUB_SHA")" \
-      --branch="$GITHUB_REF_NAME"
-  '';
+  scripts = {
+    astro.exec = "bunx --bun astro $@";
+    prettier.exec = "bun run prettier $@";
+    deploy.exec = ''
+      bun install && bun run build
+      bunx wrangler pages deploy dist/ \
+        --project-name="$CLOUDFLARE_PROJECT" \
+        --commit-hash=$(git rev-parse --short "$GITHUB_SHA") \
+        --commit-message="$(git log --format=%B -n 1 "$GITHUB_SHA")" \
+        --branch="$GITHUB_REF_NAME"
+    '';
+  };
 }
