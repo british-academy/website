@@ -1,6 +1,6 @@
 import { resolve } from "node:path"
 import { defineConfig } from "astro/config"
-import { defaultLocale, locales } from "./src/content/translations"
+import { defaultLocale } from "./src/content/translations"
 
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
@@ -11,7 +11,7 @@ export default defineConfig({
 
   i18n: {
     defaultLocale,
-    locales,
+    locales: ["en", "fr", "ar"],
     fallback: { fr: "en", ar: "fr" },
     routing: {
       prefixDefaultLocale: true,

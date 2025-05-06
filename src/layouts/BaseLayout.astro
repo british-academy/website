@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 import BaseHead, { type Props as HeadProps } from "~/components/BaseHead.astro"
 import { direction } from "~/utils/i18n"
 
@@ -14,7 +14,7 @@ const { showHeader = true, showFooter = true, ...head } = Astro.props
 <html dir={direction(Astro.currentLocale)} lang={Astro.currentLocale} class="antialiased break-words">
   <head>
     <BaseHead {...head} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="bg-slate-100 dark:bg-slate-900 scroll-smooth pt-16">
     {showHeader && <Navbar />}
