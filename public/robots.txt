@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://vergangenheit.org/sitemap-index.xml
+Sitemap: https://british.academy/sitemap-index.xml
