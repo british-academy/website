@@ -14,6 +14,7 @@ import students from "~/assets/images/students.jpg"
 import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
+import volunteerVideo from "~/assets/videos/volunteer-and-teach-english-to-our-students.mp4"
 
 import Address from "~/components/Address.astro"
 import Button from "~/components/Button.astro"
@@ -57,7 +58,7 @@ import Video from "~/components/Video.astro"
   <Carousel />
 </Section>
 
-<Section title="Atteignez vos Objectifs Linguistiques Grâce aux Certifications Mondiales" blurb="À la British Language Academy, nous proposons une large gamme d'examens de langue reconnus internationalement, chacun conçu pour valider votre maîtrise de l'anglais en vue d'une réussite académique, professionnelle ou personnelle.">
+<Section class="bg-slate-100 dark:bg-slate-800" title="Atteignez vos Objectifs Linguistiques Grâce aux Certifications Mondiales" blurb="À la British Language Academy, nous proposons une large gamme d'examens de langue reconnus internationalement, chacun conçu pour valider votre maîtrise de l'anglais en vue d'une réussite académique, professionnelle ou personnelle.">
   <SectionItem slot="grid" icon-name="toefl" icon-color="secondary">
     ### Test of English as a Foreign Language
 
@@ -87,7 +88,6 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  class="bg-slate-100 dark:bg-slate-800"
   type="grid"
   title="Accrédité par l'Université de Cambridge"
   tagline="Établir la norme d'excellence en matière d'enseignement des langues"
@@ -103,14 +103,39 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
+  class="bg-slate-100 dark:bg-slate-800"
   title="Académie britannique des langues : Un héritage de maîtrise des langues"
   blurb="Dans ce reportage de 4 minutes de BBC News datant de 2013, l'ascension de la British Language Academy en tant qu'institution linguistique de confiance est explorée. Avec près d'une décennie de dévouement pour aider les apprenants à exceller, l'Académie reste un leader dans la fourniture d'un enseignement de classe mondiale et de certifications reconnues dans le monde entier. Découvrez comment les méthodes innovantes, les programmes adaptables et la crédibilité internationale de l'école ont façonné son impact durable sur les étudiants et les professionnels du monde entier."
 >
   <Video src={bbcNews} controls />
 </Section>
 
-<Section 
-  class="bg-slate-100 dark:bg-slate-800"
+<Section
+  type="grid"
+  title="Vivez une aventure d'enseignement inoubliable au Maroc"
+  tagline="Devenez bénévole à la British Language Academy et découvrez la magie de Casablanca"
+  blurb="Rejoignez notre programme de bénévolat et contribuez à notre mission d'autonomiser les apprenants grâce à l'enseignement de l'anglais. Travaillez en tandem, plongez dans la culture marocaine et explorez les paysages époustouflants du Maroc tout en ayant un impact positif sur la vie des étudiants."
+>
+  <Video
+    slot="media"
+    class="w-full rounded-lg"
+    src={volunteerVideo}
+    controls
+  />
+
+  <SectionItem>
+    ### Ce que vous ferez
+    Travaillez 18 heures par semaine en tant que partenaire tandem, aidez les étudiants à améliorer leur anglais et collaborez avec notre équipe pédagogique expérimentée.
+    
+    ### Ce que vous recevrez
+    Hébergement partagé au cœur de Casablanca, déjeuner inclus les jours de travail, et trois jours de repos par semaine pour explorer. Immergez-vous dans la culture marocaine et connectez-vous avec d'autres bénévoles internationaux.
+    
+    ### L'aventure vous attend
+    Découvrez le Maroc à travers nos excursions organisées à Tanger & Chefchaouen, Fès, Merzouga & Sahara, les montagnes de l'Atlas, Aït Ben Haddou & Ouarzazate, Marrakech, Agadir & Essaouira.
+  </SectionItem>
+</Section>
+
+<Section class="bg-slate-100 dark:bg-slate-800"
   title="Pourquoi la British Language Academy est votre meilleur choix"
   tagline="Quand l'apprentissage des langues rencontre le succès">
   <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
@@ -168,8 +193,8 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  title="Nos sites"
   class="bg-slate-100 dark:bg-slate-800"
+  title="Nos sites"
   tagline="Vos objectifs linguistiques à portée de main. Apprenez l'anglais au Maroc."
   grid-cols="2"
 >

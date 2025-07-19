@@ -14,6 +14,7 @@ import students from "~/assets/images/students.jpg"
 import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
+import volunteerVideo from "~/assets/videos/volunteer-and-teach-english-to-our-students.mp4"
 
 import Address from "~/components/Address.astro"
 import Button from "~/components/Button.astro"
@@ -56,7 +57,7 @@ import Video from "~/components/Video.astro"
   <Carousel />
 </Section>
 
-<Section title="حقق أهدافك اللغوية من خلال الشهادات العالمية" blurb="نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.">
+<Section class="bg-slate-100 dark:bg-slate-800" title="حقق أهدافك اللغوية من خلال الشهادات العالمية" blurb="نحن في الأكاديمية البريطانية للغات نقدم مجموعة واسعة من امتحانات اللغة الإنجليزية المعترف بها دولياً، وكل منها مصمم للتحقق من كفاءتك في اللغة الإنجليزية لتحقيق النجاح الأكاديمي أو المهني أو الشخصي.">
   <SectionItem slot="grid" icon-name="toefl">
     ### Test of English as a Foreign Language
 
@@ -86,7 +87,6 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  class="bg-slate-100 dark:bg-slate-800"
   type="grid"
   title="معتمدة من جامعة كامبريدج"
   tagline="وضع معيار التميز في تعليم اللغات"
@@ -102,6 +102,7 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
+  class="bg-slate-100 dark:bg-slate-800"
   title="أكاديمية اللغة البريطانية: إرث من إتقان اللغة"
   blurb="في هذا التقرير الذي يستغرق 4 دقائق من أخبار البي بي سي من عام 2013، يستكشف هذا التقرير الذي يستغرق 4 دقائق صعود أكاديمية اللغة البريطانية إلى الصدارة كمؤسسة لغوية موثوقة. مع ما يقرب من عقد من الزمن من التفاني في مساعدة المتعلمين على التفوق، لا تزال الأكاديمية رائدة في تقديم تعليم عالمي المستوى وشهادات معترف بها عالميًا. تعرّف كيف ساهمت أساليب المدرسة المبتكرة وبرامجها القابلة للتكيف ومصداقيتها الدولية في تشكيل تأثيرها الدائم على الطلاب والمهنيين في جميع أنحاء العالم."
 >
@@ -109,7 +110,31 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  class="bg-slate-100 dark:bg-slate-800"
+  type="grid"
+  title="انطلق في مغامرة تعليمية لا تُنسى في المغرب"
+  tagline="كن متطوعًا في الأكاديمية البريطانية للغات واكتشف سحر الدار البيضاء"
+  blurb="انضم إلى برنامج التطوع لدينا وكن جزءًا من مهمتنا لتمكين المتعلمين من خلال تعليم اللغة الإنجليزية. اعمل كشريك تعليمي، وانغمس في الثقافة المغربية، واستكشف المناظر الخلابة للمغرب بينما تترك أثرًا إيجابيًا في حياة الطلاب."
+>
+  <Video
+    slot="media"
+    class="w-full rounded-lg"
+    src={volunteerVideo}
+    controls
+  />
+
+  <SectionItem>
+    ### ماذا ستفعل
+    العمل 18 ساعة في الأسبوع كشريك تعليمي، ومساعدة الطلاب على تحسين مهاراتهم في اللغة الإنجليزية، والتعاون مع فريقنا التعليمي المتميز.
+    
+    ### ماذا ستحصل عليه
+    إقامة مشتركة في قلب الدار البيضاء، والغداء متوفر في أيام العمل، وثلاثة أيام عطلة أسبوعيًا للاستكشاف. انغمس في الثقافة المغربية وتواصل مع متطوعين دوليين آخرين.
+    
+    ### المغامرة بانتظارك
+    اكتشف سحر المغرب من خلال رحلاتنا المنظمة إلى طنجة وشفشاون، فاس، مرزوكة والصحراء، جبال الأطلس، آيت بن حدو وورزازات، مراكش، وأكادير والصويرة.
+  </SectionItem>
+</Section>
+
+<Section class="bg-slate-100 dark:bg-slate-800"
   title="لماذا أكاديمية اللغة البريطانية هي خيارك الأفضل"
   tagline="حيث يلتقي تعلم اللغة مع النجاح"
 >
@@ -165,8 +190,8 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  title="مواقعنا"
   class="bg-slate-100 dark:bg-slate-800"
+  title="مواقعنا"
   tagline="أهدافك اللغوية، في متناول اليد. تعلّم الإنجليزية في جميع أنحاء المغرب."
   grid-cols="2"
 >

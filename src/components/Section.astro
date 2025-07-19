@@ -17,6 +17,7 @@ type Props = HTMLAttributes<"section"> & {
   type?: "grid"
   "grid-cols"?: number
 }
+
 const {
   align,
   mode = "auto",
@@ -30,12 +31,14 @@ const {
   "grid-cols": gridCols,
   ...attrs
 } = Astro.props
+
 const {
   default: defaultSlot,
   actions: actionsSlot,
   featured: featuredSlot,
   grid: gridSlot,
   items: itemsSlot,
+  media: mediaSlot,
 } = Astro.slots
 const l = Astro.currentLocale || defaultLocale
 
@@ -134,6 +137,7 @@ const Title = hero ? "h1" : "h2"
           </Title>
         )
       }
+
       {tagline && <p class={taglineCls}>{tagline}</p>}
       {blurb && <p class={blurbCls}>{blurb}</p>}
 
@@ -155,9 +159,12 @@ const Title = hero ? "h1" : "h2"
           </div>
         )
       }
+
+      {mediaSlot && defaultSlot && <slot />}
     </div>
 
-    {defaultSlot && <slot />}
+    {defaultSlot && !mediaSlot && <slot />}
+    {mediaSlot && <slot name="media" />}
 
     {
       gridSlot && (
