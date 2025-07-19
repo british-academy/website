@@ -13,6 +13,7 @@ image:
 import students from "~/assets/images/students.jpg"
 import cambridge from "~/assets/images/accredited-by-the-university-of-cambridge.jpg"
 import bbcNews from "~/assets/videos/british-language-academy-on-bbc-news.mp4"
+import volunteerVideo from "~/assets/videos/volunteer-and-teach-english-to-our-students.mp4"
 import youngAndOld from "~/assets/images/young-and-old-are-studying-together.webp"
 
 import Address from "~/components/Address.astro"
@@ -57,7 +58,7 @@ import Video from "~/components/Video.astro"
   <Carousel />
 </Section>
 
-<Section title="Achieve Your Language Goals with Global Certifications" blurb="At British Language Academy, we offer an extensive range of internationally recognized language exams, each designed to validate your English proficiency for academic, professional, or personal success.">
+<Section class="bg-slate-100 dark:bg-slate-800" title="Achieve Your Language Goals with Global Certifications" blurb="At British Language Academy, we offer an extensive range of internationally recognized language exams, each designed to validate your English proficiency for academic, professional, or personal success.">
   <SectionItem slot="grid" icon-name="toefl" icon-color="secondary">
     ### Test of English as a Foreign Language
 
@@ -87,7 +88,6 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  class="bg-slate-100 dark:bg-slate-800"
   type="grid"
   title="Accredited by the University of Cambridge"
   tagline="Setting the Standard for Excellence in Language Education"
@@ -103,14 +103,39 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
+  class="bg-slate-100 dark:bg-slate-800"
   title="British Language Academy: A Legacy of Language Mastery"
   blurb="In this 4-minute BBC News feature from 2013, British Language Academy's rise to prominence as a trusted language institution is explored. With nearly a decade of dedication to helping learners excel, the Academy remains a leader in delivering world-class education and globally recognized certifications. Learn how the school's innovative methods, adaptable programs, and international credibility have shaped its lasting impact on students and professionals worldwide."
 >
   <Video src={bbcNews} controls />
 </Section>
 
-<Section 
-  class="bg-slate-100 dark:bg-slate-800"
+<Section
+  type="grid"
+  title="Embark on a Life-Changing Teaching Adventure in Morocco"
+  tagline="Volunteer with British Language Academy and Experience the Magic of Casablanca"
+  blurb="Discover what it's like to be part of our volunteer teaching program. This video showcases the rewarding experience of working as a tandem partner, the cultural immersion opportunities, and the meaningful connections you'll make while helping students achieve their language goals."
+>
+  <Video
+    slot="media"
+    class="w-full rounded-lg"
+    src={volunteerVideo}
+    controls
+  />
+
+  <SectionItem>
+    ### What You'll Do
+    Work 18 hours per week as a tandem partner, helping students improve their English communication skills. Collaborate with our experienced teaching team and contribute to our mission of language excellence.
+    
+    ### What You'll Get
+    Enjoy shared accommodation in the heart of Casablanca, lunch included on workdays, and three days off per week for exploration. Immerse yourself in Moroccan culture and connect with a community of international volunteers.
+    
+    ### Adventure Awaits
+    Experience the magic of Morocco through our organized trips to Tangier & Chefchaouen, Fes, Merzouga & Sahara, Atlas Mountains, Ait Ben Haddou & Ouarzazate, Marrakesh, and Agadir & Essaouira.
+  </SectionItem>
+</Section>
+
+<Section class="bg-slate-100 dark:bg-slate-800"
   title="Why British Language Academy is Your Best Choice"
   tagline="Where Language Learning Meets Success">
   <SectionItem slot="grid" icon-name="graduation-cap" wrapper-class="w-16 h-16 rounded-full bg-primary-500/20" icon-class="p-2 text-primary">
@@ -168,8 +193,8 @@ import Video from "~/components/Video.astro"
 </Section>
 
 <Section
-  title="Our Locations"
   class="bg-slate-100 dark:bg-slate-800"
+  title="Our Locations"
   tagline="Your language goals, within reach. Learn English across Morocco."
   grid-cols="2"
 >
